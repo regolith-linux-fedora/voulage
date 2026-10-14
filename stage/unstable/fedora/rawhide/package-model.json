@@ -1,0 +1,8 @@
+{
+  "packages": {
+    "sway-regolith": {
+      "ref": "fedora/package-sway-v1.12",
+      "source": "https://github.com/regolith-linux-fedora/sway-regolith.git"
+    }
+  }
+}
