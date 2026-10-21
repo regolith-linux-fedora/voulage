@@ -1,0 +1,394 @@
+debian_name	field	used_by	constraints	fedora_43	fedora_44	fedora_45	fedora_rawhide	status	owner	notes
+accountsservice	Depends	regolith-control-center	>= 23.11.69	accountsservice	accountsservice	accountsservice	accountsservice	same		
+adwaita-icon-theme	Depends	regolith-default-settings,regolith-look-extra		adwaita-icon-theme	adwaita-icon-theme	adwaita-icon-theme	adwaita-icon-theme	same		
+alsa-utils	Depends	regolith-i3xrocks-config		alsa-utils	alsa-utils	alsa-utils	alsa-utils	same		
+arc-icon-theme	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from arc-icon-theme
+asciidoc	Build-Depends	picom		asciidoc	asciidoc	asciidoc	asciidoc	same		
+asciidoc-base	Build-Depends	regolith-unclutter-xfixes		/usr/bin/a2x (asciidoc)	/usr/bin/a2x (asciidoc)	/usr/bin/a2x (asciidoc)	/usr/bin/a2x (asciidoc)	capability		
+autoconf	Build-Depends	solarc-theme		autoconf	autoconf	autoconf	autoconf	same		
+automake	Build-Depends	solarc-theme		automake	automake	automake	automake	same		
+avizo	Provides,Conflicts	regolith-avizo		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-avizo
+ayu-theme	Depends	regolith-default-settings,regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from ayu-theme
+bash	Depends	regolith-i3xrocks-config	>= 3	bash	bash	bash	bash	same		
+bc	Depends	regolith-i3xrocks-config		bc	bc	bc	bc	same		
+blueprint-compiler	Build-Depends	regolith-control-center	>= 0.17.0	blueprint-compiler	blueprint-compiler	blueprint-compiler	blueprint-compiler	same		
+build-essential	Build-Depends	gtklock,i3status-rs,sway-audio-idle-inhibit		-	-	-	-	drop		Debian build meta-package; Fedora specs list gcc, make etc. as explicit BuildRequires
+ca-certificates	Build-Depends	i3status-rs,regolith-inputd		ca-certificates	ca-certificates	ca-certificates	ca-certificates	same		
+cargo	Build-Depends	armesto,childe,i3status-rs,regolith-displayd,regolith-inputd,regolith-powerd,trawl		cargo	cargo	cargo	cargo	same		
+childe	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from childe
+clipman	Depends	regolith-session		clipman	clipman	clipman	clipman	same		
+cmake	Build-Depends	i3-snapshot		cmake	cmake	cmake	cmake	same		
+cmake-data	Build-Depends	i3-snapshot		cmake-data	cmake-data	cmake-data	cmake-data	same		
+colord	Depends	regolith-control-center		colord	colord	colord	colord	same		
+compton	Depends,Conflicts	picom,regolith-compositor-compton-glx		/usr/bin/compton (picom)	/usr/bin/compton (picom)	/usr/bin/compton (picom)	/usr/bin/compton (picom)	capability		
+coreutils	Depends	regolith-i3xrocks-config	>= 8	coreutils	coreutils	coreutils	coreutils	same		
+cracklib-runtime	Recommends	regolith-control-center		cracklib	cracklib	cracklib	cracklib	renamed		
+cups-pk-helper	Recommends	regolith-control-center		cups-pk-helper	cups-pk-helper	cups-pk-helper	cups-pk-helper	same		
+curl	Depends	regolith-i3xrocks-config		curl	curl	curl	curl	same		
+dbus	Depends	regolith-session		dbus	dbus	dbus	dbus	same		
+dconf-cli	Depends	regolith-ftue		dconf	dconf	dconf	dconf	renamed		
+debhelper	Build-Depends	arc-icon-theme,ayu-theme,childe,dracula-gtk,fonts-jetbrains-mono,fonts-nerd-fonts,fonts-source-code-pro-ttf,gruvbox-gtk,i3-next-workspace,i3-snapshot,i3-swap-focus,i3xrocks,ilia,lago,libtrawldb,nordic,plymouth-theme-regolith,python3-i3ipc,regolith-compositor-compton-glx,regolith-compositor-none,regolith-compositor-picom-glx,regolith-compositor-xcompmgr,regolith-desktop,regolith-ftue,regolith-look-default,regolith-look-extra,regolith-rofi-config,regolith-rofication,regolith-session,regolith-sway-touchpad-gestures,regolith-unclutter-xfixes,regolith-wm-config,remontoire,solarc-theme,trawl,whitesur-gtk-theme,xdg-desktop-portal-regolith,xrescat	>= 10; >= 11; >= 9; >=9	debhelper	debhelper	debhelper	debhelper	drop		Debian packaging helper; RPM specs don't use it (Fedora carries a debhelper package for building .debs, not needed)
+debhelper-compat	Build-Depends	armesto,fonts-materialdesignicons-webfont,gtklock,i3status-rs,picom,regolith-avizo,regolith-control-center,regolith-default-settings,regolith-displayd,regolith-i3xrocks-config,regolith-inputd,regolith-powerd,sway-audio-idle-inhibit,sway-regolith,sway-regolith@package-sway-v1.12	= 11; = 13; =12	-	-	-	-	drop		Debian packaging helper level; no RPM meaning | Debian virtual package, provided by debhelper
+desktop-base	Depends	regolith-control-center		desktop-backgrounds-gnome	desktop-backgrounds-gnome	desktop-backgrounds-gnome	desktop-backgrounds-gnome	renamed		Debian branding and default backgrounds; closest Fedora package, 04-04 to confirm
+desktop-file-utils	Depends,Build-Depends	regolith-control-center		desktop-file-utils	desktop-file-utils	desktop-file-utils	desktop-file-utils	same		
+dh-python	Build-Depends	i3-swap-focus,python3-i3ipc,regolith-rofication		-	-	-	-	drop		Debian Python helper; specs use pyproject-rpm-macros / python3-devel
+dh-sequence-gnome	Build-Depends	regolith-control-center	>= 0.22.2	-	-	-	-	drop		Debian GNOME helper sequence; no RPM meaning | Debian virtual package, provided by gnome-pkg-tools
+docbook-xml	Build-Depends	picom		docbook-dtds	docbook-dtds	docbook-dtds	docbook-dtds	renamed		
+docbook-xsl	Build-Depends	picom,regolith-unclutter-xfixes		docbook-xsl (docbook-style-xsl)	docbook-xsl (docbook-style-xsl)	docbook-xsl (docbook-style-xsl)	docbook-xsl (docbook-style-xsl)	capability		
+dracula-gtk	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from dracula-gtk
+dunst	Conflicts	regolith-rofication		dunst	dunst	dunst	dunst	same		
+file	Depends	regolith-wm-config		file	file	file	file	same		
+fontconfig	Suggests	fonts-source-code-pro-ttf		fontconfig	fontconfig	fontconfig	fontconfig	same		
+fonts-font-awesome	Recommends	remontoire		fontawesome4-fonts	fontawesome4-fonts	fontawesome4-fonts	fontawesome4-fonts	renamed		
+fonts-nerd-font-bitstreamverasansmono	Depends	regolith-look-default,regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from fonts-nerd-fonts
+fonts-nerd-font-cousine	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from fonts-nerd-fonts
+fonts-nerd-font-hack	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from fonts-nerd-fonts
+fonts-nerd-font-meslo	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from fonts-nerd-fonts
+fonts-nerd-font-mononoki	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from fonts-nerd-fonts
+fonts-nerd-font-robotomono	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from fonts-nerd-fonts
+fonts-nerd-font-sourcecodepro	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from fonts-nerd-fonts
+fonts-noto-color-emoji	Depends	regolith-i3xrocks-config		google-noto-color-emoji-fonts	google-noto-color-emoji-fonts	google-noto-color-emoji-fonts	google-noto-color-emoji-fonts	renamed		
+foot	Recommends	sway-regolith,sway-regolith@package-sway-v1.12		foot	foot	foot	foot	same		
+fwupd	Recommends	regolith-control-center	[linux-any]	fwupd	fwupd	fwupd	fwupd	same		
+gcc	Build-Depends	i3status-rs		gcc	gcc	gcc	gcc	same		
+gettext	Build-Depends	ilia,lago,remontoire,xdg-desktop-portal-regolith		gettext	gettext	gettext	gettext	same		
+gir1.2-gee-0.8	Build-Depends	ilia,lago,remontoire		libgee	libgee	libgee	libgee	renamed		Fedora ships the Gee-0.8 typelib in libgee (no typelib() provides)
+gir1.2-gtklayershell-0.1	Build-Depends	gtklock,ilia,regolith-avizo		gtk-layer-shell	gtk-layer-shell	gtk-layer-shell	gtk-layer-shell	renamed		Fedora ships the GtkLayerShell-0.1 typelib in gtk-layer-shell (no typelib() provides)
+gnome-bluetooth-sendto	Recommends	regolith-control-center		gnome-bluetooth	gnome-bluetooth	gnome-bluetooth	gnome-bluetooth	renamed		
+gnome-control-center	Depends,Recommends	regolith-displayd,regolith-inputd,regolith-wm-config		gnome-control-center	gnome-control-center	gnome-control-center	gnome-control-center	same		
+gnome-control-center-data	Depends	regolith-control-center	<< 1:50; >= 1:49~beta-1	gnome-control-center-filesystem	gnome-control-center-filesystem	gnome-control-center-filesystem	gnome-control-center-filesystem	renamed		
+gnome-control-center-faces	Recommends	regolith-control-center		-	-	-	-	problem	04-04	Fedora ships the user face images inside gnome-control-center itself (/usr/share/pixmaps/faces); regolith-control-center must own them or depend on stock Settings
+gnome-desktop3-data	Depends	regolith-control-center		gnome-desktop3	gnome-desktop3	gnome-desktop3	gnome-desktop3	renamed		
+gnome-disk-utility	Depends	regolith-i3xrocks-config		gnome-disk-utility	gnome-disk-utility	gnome-disk-utility	gnome-disk-utility	same		
+gnome-flashback	Depends	regolith-session		gnome-flashback	gnome-flashback	gnome-flashback	gnome-flashback	same		
+gnome-online-accounts	Depends	regolith-control-center	>= 3.51.0	gnome-online-accounts	gnome-online-accounts	gnome-online-accounts	gnome-online-accounts	same		
+gnome-packagekit	Suggests	regolith-control-center		gnome-packagekit	gnome-packagekit	gnome-packagekit	gnome-packagekit	same		alternatives: gnome-software | gnome-packagekit
+gnome-remote-desktop	Recommends	regolith-control-center	>= 47	gnome-remote-desktop	gnome-remote-desktop	gnome-remote-desktop	gnome-remote-desktop	same		
+gnome-session-bin	Depends	regolith-powerd,regolith-session		gnome-session	gnome-session	gnome-session	gnome-session	renamed		
+gnome-session-flashback	Conflicts	regolith-session		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+gnome-settings-daemon	Depends	regolith-control-center,regolith-session,regolith-wm-config	>= 48~rc	gnome-settings-daemon	gnome-settings-daemon	gnome-settings-daemon	gnome-settings-daemon	same		
+gnome-settings-daemon-dev	Build-Depends	regolith-control-center	>= 48~rc	pkgconfig(gnome-settings-daemon) (gnome-settings-daemon-devel)	pkgconfig(gnome-settings-daemon) (gnome-settings-daemon-devel)	pkgconfig(gnome-settings-daemon) (gnome-settings-daemon-devel)	pkgconfig(gnome-settings-daemon) (gnome-settings-daemon-devel)	capability		
+gnome-software	Suggests	regolith-control-center		gnome-software	gnome-software	gnome-software	gnome-software	same		alternatives: gnome-software | gnome-packagekit
+gnome-system-monitor	Depends	regolith-i3xrocks-config		gnome-system-monitor	gnome-system-monitor	gnome-system-monitor	gnome-system-monitor	same		
+gnome-terminal	Recommends	regolith-ftue,regolith-session		gnome-terminal	gnome-terminal	gnome-terminal	gnome-terminal	same		
+gnome-themes-extra	Depends	regolith-look-default,solarc-theme		gnome-themes-extra	-	-	-	problem	05-03	Fedora 43 only (retired in 44); look-default and solarc-theme need another Adwaita-dark/HighContrast source | missing on 44, 45, rawhide
+gnome-themes-extra-data	Depends	regolith-look-extra		gnome-themes-extra	-	-	-	problem	10-parity	Fedora 43 only (retired in 44); used by regolith-look-extra | missing on 44, 45, rawhide
+gnome-user-docs	Recommends	regolith-control-center		gnome-user-docs	gnome-user-docs	gnome-user-docs	gnome-user-docs	same		
+gnome-user-share	Suggests	regolith-control-center		gnome-user-share	gnome-user-share	gnome-user-share	gnome-user-share	same		
+gobject-introspection	Build-Depends	ilia,regolith-avizo,regolith-control-center	>= 1.80	gobject-introspection	gobject-introspection	gobject-introspection	gobject-introspection	same		
+grimshot	Depends	regolith-wm-config		grimshot	grimshot	grimshot	grimshot	same		
+gruvbox-gtk	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from gruvbox-gtk
+gsettings-desktop-schemas	Depends	regolith-control-center	>= 48~alpha	gsettings-desktop-schemas	gsettings-desktop-schemas	gsettings-desktop-schemas	gsettings-desktop-schemas	same		
+gsettings-desktop-schemas-dev	Build-Depends	regolith-control-center	>= 48~alpha	pkgconfig(gsettings-desktop-schemas) (gsettings-desktop-schemas-devel)	pkgconfig(gsettings-desktop-schemas) (gsettings-desktop-schemas-devel)	pkgconfig(gsettings-desktop-schemas) (gsettings-desktop-schemas-devel)	pkgconfig(gsettings-desktop-schemas) (gsettings-desktop-schemas-devel)	capability		
+gstreamer1.0-plugins-good	Suggests	regolith-control-center	>= 1.18.0	gstreamer1-plugins-good	gstreamer1-plugins-good	gstreamer1-plugins-good	gstreamer1-plugins-good	renamed		
+gtk-doc-tools	Build-Depends	regolith-control-center		pkgconfig(gtk-doc) (gtk-doc)	pkgconfig(gtk-doc) (gtk-doc)	pkgconfig(gtk-doc) (gtk-doc)	pkgconfig(gtk-doc) (gtk-doc)	capability		
+gtk2-engines-murrine	Depends	nordic,solarc-theme		gtk-murrine-engine	gtk-murrine-engine	gtk-murrine-engine	gtk-murrine-engine	renamed		
+gtk2-engines-pixbuf	Depends	nordic		gtk2-engines	gtk2-engines	gtk2-engines	gtk2-engines	renamed		
+gtklock	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from gtklock | Fedora also ships gtklock: 44 4.0.0-3.fc44, 45 4.0.0-4.fc45, rawhide 4.0.0-4.fc45
+heif-gdk-pixbuf	Depends	regolith-control-center		heif-pixbuf-loader (gdk-pixbuf2)	heif-pixbuf-loader (gdk-pixbuf2)	heif-pixbuf-loader (gdk-pixbuf2)	heif-pixbuf-loader (gdk-pixbuf2)	capability		gdk-pixbuf2 provides the loader on Fedora
+heif-thumbnailer	Depends	regolith-control-center		/usr/bin/heif-thumbnailer (libheif-tools)	/usr/bin/heif-thumbnailer (libheif-tools)	/usr/bin/heif-thumbnailer (libheif-tools)	/usr/bin/heif-thumbnailer (libheif-tools)	capability		
+hicolor-icon-theme	Depends	regolith-look-default		hicolor-icon-theme	hicolor-icon-theme	hicolor-icon-theme	hicolor-icon-theme	same		
+i3-next-workspace	Depends,Recommends	regolith-i3xrocks-config,regolith-session,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from i3-next-workspace
+i3-swap-focus	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from i3-swap-focus
+i3-wm	Depends,Build-Depends	i3-snapshot,regolith-session,regolith-wm-config	>= 4.20	i3	i3	i3	i3	renamed		alternatives: i3-wm (>= 4.20) | sway-regolith
+i3status-rs	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from i3status-rs
+i3xrocks	Depends	regolith-i3xrocks-config,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from i3xrocks
+i3xrocks-cpu-usage	Recommends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-i3xrocks-config
+i3xrocks-net-traffic	Recommends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-i3xrocks-config
+i3xrocks-time	Recommends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-i3xrocks-config
+ibus	Recommends	regolith-control-center		ibus	ibus	ibus	ibus	same		
+ilia	Depends	regolith-ftue,regolith-i3xrocks-config,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from ilia
+intltool	Build-Depends	ilia,lago,xdg-desktop-portal-regolith		intltool	intltool	intltool	intltool	same		
+iproute2	Depends	regolith-i3xrocks-config		iproute	iproute	iproute	iproute	renamed		
+iso-codes	Recommends	regolith-control-center		iso-codes	iso-codes	iso-codes	iso-codes	same		
+jq	Depends	regolith-wm-config		jq	jq	jq	jq	same		
+kanshi	Depends	regolith-displayd		kanshi	kanshi	kanshi	kanshi	same		
+language-selector-gnome	Depends	regolith-control-center	>= 0.179~	-	-	-	-	drop		Ubuntu language support tool; not on Fedora, the Region panel works without it
+libaccountsservice-dev	Build-Depends	regolith-control-center	>= 23.11.69	pkgconfig(accountsservice) (accountsservice-devel)	pkgconfig(accountsservice) (accountsservice-devel)	pkgconfig(accountsservice) (accountsservice-devel)	pkgconfig(accountsservice) (accountsservice-devel)	capability		
+libadwaita-1-dev	Build-Depends	regolith-control-center	>= 1.8~alpha	pkgconfig(libadwaita-1) (libadwaita-devel)	pkgconfig(libadwaita-1) (libadwaita-devel)	pkgconfig(libadwaita-1) (libadwaita-devel)	pkgconfig(libadwaita-1) (libadwaita-devel)	capability		
+libcairo2-dev	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12		pkgconfig(cairo) (cairo-devel)	pkgconfig(cairo) (cairo-devel)	pkgconfig(cairo) (cairo-devel)	pkgconfig(cairo) (cairo-devel)	capability		
+libcanberra-pulse	Recommends	regolith-control-center		libcanberra	libcanberra	libcanberra	libcanberra	renamed		
+libcolord-dev	Build-Depends	regolith-control-center		pkgconfig(colord) (colord-devel)	pkgconfig(colord) (colord-devel)	pkgconfig(colord) (colord-devel)	pkgconfig(colord) (colord-devel)	capability		
+libcolord-gtk4-dev	Build-Depends	regolith-control-center	>= 0.1.24	pkgconfig(colord-gtk4) (colord-gtk4-devel)	pkgconfig(colord-gtk4) (colord-gtk4-devel)	pkgconfig(colord-gtk4) (colord-gtk4-devel)	pkgconfig(colord-gtk4) (colord-gtk4-devel)	capability		
+libconfig-dev	Build-Depends	picom		pkgconfig(libconfig) (libconfig-devel)	pkgconfig(libconfig) (libconfig-devel)	pkgconfig(libconfig) (libconfig-devel)	pkgconfig(libconfig) (libconfig-devel)	capability		
+libcups2-dev	Build-Depends	regolith-control-center		pkgconfig(cups) (cups-devel)	pkgconfig(cups) (cups-devel)	pkgconfig(cups) (cups-devel)	pkgconfig(cups) (cups-devel)	capability		
+libdbus-1-3	Depends	i3status-rs		dbus-libs	dbus-libs	dbus-libs	dbus-libs	renamed		
+libdbus-1-dev	Depends,Build-Depends	armesto,i3status-rs,picom		pkgconfig(dbus-1) (dbus-devel)	pkgconfig(dbus-1) (dbus-devel)	pkgconfig(dbus-1) (dbus-devel)	pkgconfig(dbus-1) (dbus-devel)	capability		
+libdrm-dev	Build-Depends	sway-regolith@package-sway-v1.12		pkgconfig(libdrm) (libdrm-devel)	pkgconfig(libdrm) (libdrm-devel)	pkgconfig(libdrm) (libdrm-devel)	pkgconfig(libdrm) (libdrm-devel)	capability		
+libelogind-dev	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12	>= 239	-	-	-	-	drop		alternative to libsystemd-dev; Fedora uses systemd | not a package in Ubuntu resolute main/universe | alternatives: libsystemd-dev (>= 239) | libelogind-dev (>= 239)
+libepoxy-dev	Build-Depends	picom		pkgconfig(epoxy) (libepoxy-devel)	pkgconfig(epoxy) (libepoxy-devel)	pkgconfig(epoxy) (libepoxy-devel)	pkgconfig(epoxy) (libepoxy-devel)	capability		
+libev-dev	Build-Depends	picom,regolith-unclutter-xfixes		libev-devel	libev-devel	libev-devel	libev-devel	renamed		
+libevdev-dev	Build-Depends	picom,sway-regolith,sway-regolith@package-sway-v1.12		pkgconfig(libevdev) (libevdev-devel)	pkgconfig(libevdev) (libevdev-devel)	pkgconfig(libevdev) (libevdev-devel)	pkgconfig(libevdev) (libevdev-devel)	capability		
+libevdev2	Depends	picom		libevdev	libevdev	libevdev	libevdev	renamed		
+libgcr-4-dev	Build-Depends	regolith-control-center	[linux-any]	pkgconfig(gcr-4) (gcr-devel)	pkgconfig(gcr-4) (gcr-devel)	pkgconfig(gcr-4) (gcr-devel)	pkgconfig(gcr-4) (gcr-devel)	capability		
+libgdk-pixbuf-2.0-dev	Build-Depends	regolith-control-center,sway-regolith,sway-regolith@package-sway-v1.12		pkgconfig(gdk-pixbuf-2.0) (gdk-pixbuf2-devel)	pkgconfig(gdk-pixbuf-2.0) (gdk-pixbuf2-devel)	pkgconfig(gdk-pixbuf-2.0) (gdk-pixbuf2-devel)	pkgconfig(gdk-pixbuf-2.0) (gdk-pixbuf2-devel)	capability		
+libgee-0.8-2	Depends,Build-Depends	ilia,remontoire		libgee	libgee	libgee	libgee	renamed		
+libgee-0.8-dev	Build-Depends	ilia,remontoire		pkgconfig(gee-0.8) (libgee-devel)	pkgconfig(gee-0.8) (libgee-devel)	pkgconfig(gee-0.8) (libgee-devel)	pkgconfig(gee-0.8) (libgee-devel)	capability		
+libgirepository1.0-dev	Build-Depends	ilia,regolith-avizo		pkgconfig(gobject-introspection-1.0) (gobject-introspection-devel)	pkgconfig(gobject-introspection-1.0) (gobject-introspection-devel)	pkgconfig(gobject-introspection-1.0) (gobject-introspection-devel)	pkgconfig(gobject-introspection-1.0) (gobject-introspection-devel)	capability		
+libgl1-mesa-dev	Build-Depends	picom		pkgconfig(gl) (libglvnd-devel)	pkgconfig(gl) (libglvnd-devel)	pkgconfig(gl) (libglvnd-devel)	pkgconfig(gl) (libglvnd-devel)	capability		
+libgl1-mesa-dri	Depends	sway-regolith,sway-regolith@package-sway-v1.12		mesa-dri-drivers	mesa-dri-drivers	mesa-dri-drivers	mesa-dri-drivers	renamed		
+libglib2.0-0	Depends,Build-Depends	regolith-powerd		glib2	glib2	glib2	glib2	renamed		
+libglib2.0-bin	Depends	regolith-i3xrocks-config,regolith-look-default		glib2	glib2	glib2	glib2	renamed		
+libglib2.0-dev	Build-Depends	ilia,lago,libtrawldb,regolith-avizo,regolith-control-center,regolith-displayd,regolith-inputd,regolith-powerd,trawl,xdg-desktop-portal-regolith	>= 2.76.6	pkgconfig(glib-2.0) (glib2-devel)	pkgconfig(glib-2.0) (glib2-devel)	pkgconfig(glib-2.0) (glib2-devel)	pkgconfig(glib-2.0) (glib2-devel)	capability		
+libgnome-bg-4-dev	Build-Depends	regolith-control-center		pkgconfig(gnome-bg-4) (gnome-desktop4-devel)	pkgconfig(gnome-bg-4) (gnome-desktop4-devel)	pkgconfig(gnome-bg-4) (gnome-desktop4-devel)	pkgconfig(gnome-bg-4) (gnome-desktop4-devel)	capability		
+libgnome-bluetooth-ui-3.0-dev	Build-Depends	regolith-control-center	[linux-any]	pkgconfig(gnome-bluetooth-ui-3.0) (gnome-bluetooth-libs-devel)	pkgconfig(gnome-bluetooth-ui-3.0) (gnome-bluetooth-libs-devel)	pkgconfig(gnome-bluetooth-ui-3.0) (gnome-bluetooth-libs-devel)	pkgconfig(gnome-bluetooth-ui-3.0) (gnome-bluetooth-libs-devel)	capability		
+libgnome-desktop-4-dev	Build-Depends	regolith-control-center		pkgconfig(gnome-desktop-4) (gnome-desktop4-devel)	pkgconfig(gnome-desktop-4) (gnome-desktop4-devel)	pkgconfig(gnome-desktop-4) (gnome-desktop4-devel)	pkgconfig(gnome-desktop-4) (gnome-desktop4-devel)	capability		
+libgnutls28-dev	Build-Depends	regolith-control-center		pkgconfig(gnutls) (gnutls-devel)	pkgconfig(gnutls) (gnutls-devel)	pkgconfig(gnutls) (gnutls-devel)	pkgconfig(gnutls) (gnutls-devel)	capability		
+libgoa-1.0-dev	Build-Depends	regolith-control-center	>= 3.51.0	pkgconfig(goa-1.0) (gnome-online-accounts-devel)	pkgconfig(goa-1.0) (gnome-online-accounts-devel)	pkgconfig(goa-1.0) (gnome-online-accounts-devel)	pkgconfig(goa-1.0) (gnome-online-accounts-devel)	capability		
+libgoa-backend-1.0-dev	Build-Depends	regolith-control-center	>= 3.51.0	pkgconfig(goa-backend-1.0) (gnome-online-accounts-devel)	pkgconfig(goa-backend-1.0) (gnome-online-accounts-devel)	pkgconfig(goa-backend-1.0) (gnome-online-accounts-devel)	pkgconfig(goa-backend-1.0) (gnome-online-accounts-devel)	capability		
+libgsound-dev	Build-Depends	regolith-control-center		pkgconfig(gsound) (gsound-devel)	pkgconfig(gsound) (gsound-devel)	pkgconfig(gsound) (gsound-devel)	pkgconfig(gsound) (gsound-devel)	capability		
+libgtk-3-0	Depends,Build-Depends	gtklock		gtk3	gtk3	gtk3	gtk3	renamed		
+libgtk-3-bin	Depends	regolith-wm-config		gtk3	gtk3	gtk3	gtk3	renamed		
+libgtk-3-dev	Build-Depends	gtklock,ilia,lago,regolith-avizo,remontoire,solarc-theme	>= 3.22	pkgconfig(gtk+-3.0) (gtk3-devel)	pkgconfig(gtk+-3.0) (gtk3-devel)	pkgconfig(gtk+-3.0) (gtk3-devel)	pkgconfig(gtk+-3.0) (gtk3-devel)	capability		
+libgtk-4-dev	Build-Depends	regolith-control-center,xdg-desktop-portal-regolith	>= 4.15.2	pkgconfig(gtk4) (gtk4-devel)	pkgconfig(gtk4) (gtk4-devel)	pkgconfig(gtk4) (gtk4-devel)	pkgconfig(gtk4) (gtk4-devel)	capability		
+libgtk-layer-shell-dev	Build-Depends	gtklock,ilia,regolith-avizo		pkgconfig(gtk-layer-shell-0) (gtk-layer-shell-devel)	pkgconfig(gtk-layer-shell-0) (gtk-layer-shell-devel)	pkgconfig(gtk-layer-shell-0) (gtk-layer-shell-devel)	pkgconfig(gtk-layer-shell-0) (gtk-layer-shell-devel)	capability		
+libgtk-layer-shell0	Depends,Build-Depends	gtklock,ilia,regolith-avizo		gtk-layer-shell	gtk-layer-shell	gtk-layer-shell	gtk-layer-shell	renamed		
+libgtop2-dev	Build-Depends	regolith-control-center		pkgconfig(libgtop-2.0) (libgtop2-devel)	pkgconfig(libgtop-2.0) (libgtop2-devel)	pkgconfig(libgtop-2.0) (libgtop2-devel)	pkgconfig(libgtop-2.0) (libgtop2-devel)	capability		
+libgudev-1.0-dev	Build-Depends	regolith-control-center	[linux-any]	pkgconfig(gudev-1.0) (libgudev-devel)	pkgconfig(gudev-1.0) (libgudev-devel)	pkgconfig(gudev-1.0) (libgudev-devel)	pkgconfig(gudev-1.0) (libgudev-devel)	capability		
+libhandy-1-dev	Build-Depends	regolith-control-center	>= 1.2.0	pkgconfig(libhandy-1) (libhandy-devel)	pkgconfig(libhandy-1) (libhandy-devel)	pkgconfig(libhandy-1) (libhandy-devel)	pkgconfig(libhandy-1) (libhandy-devel)	capability		
+libibus-1.0-dev	Build-Depends	regolith-control-center		pkgconfig(ibus-1.0) (ibus-devel)	pkgconfig(ibus-1.0) (ibus-devel)	pkgconfig(ibus-1.0) (ibus-devel)	pkgconfig(ibus-1.0) (ibus-devel)	capability		
+libinput-dev	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12	>= 1.21.0; >= 1.26.0	pkgconfig(libinput) (libinput-devel)	pkgconfig(libinput) (libinput-devel)	pkgconfig(libinput) (libinput-devel)	pkgconfig(libinput) (libinput-devel)	capability		
+libjson-c-dev	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12	>= 0.13	pkgconfig(json-c) (json-c-devel)	pkgconfig(json-c) (json-c-devel)	pkgconfig(json-c) (json-c-devel)	pkgconfig(json-c) (json-c-devel)	capability		
+libjson-glib-dev	Build-Depends	regolith-control-center		pkgconfig(json-glib-1.0) (json-glib-devel)	pkgconfig(json-glib-1.0) (json-glib-devel)	pkgconfig(json-glib-1.0) (json-glib-devel)	pkgconfig(json-glib-1.0) (json-glib-devel)	capability		
+libjsoncpp-dev	Build-Depends	i3-snapshot		pkgconfig(jsoncpp) (jsoncpp-devel)	pkgconfig(jsoncpp) (jsoncpp-devel)	pkgconfig(jsoncpp) (jsoncpp-devel)	pkgconfig(jsoncpp) (jsoncpp-devel)	capability		
+libjsonrpc-glib-1.0-1	Depends	remontoire		jsonrpc-glib	jsonrpc-glib	jsonrpc-glib	jsonrpc-glib	renamed		
+libjsonrpc-glib-1.0-dev	Depends,Build-Depends	ilia,lago,remontoire,xdg-desktop-portal-regolith		pkgconfig(jsonrpc-glib-1.0) (jsonrpc-glib-devel)	pkgconfig(jsonrpc-glib-1.0) (jsonrpc-glib-devel)	pkgconfig(jsonrpc-glib-1.0) (jsonrpc-glib-devel)	pkgconfig(jsonrpc-glib-1.0) (jsonrpc-glib-devel)	capability		
+libjxl-gdk-pixbuf	Depends	regolith-control-center		jxl-pixbuf-loader (gdk-pixbuf2)	jxl-pixbuf-loader (gdk-pixbuf2)	jxl-pixbuf-loader (gdk-pixbuf2)	jxl-pixbuf-loader (gdk-pixbuf2)	capability		gdk-pixbuf2 provides the loader on Fedora
+libkrb5-dev	Build-Depends	regolith-control-center		pkgconfig(krb5) (krb5-devel)	pkgconfig(krb5) (krb5-devel)	pkgconfig(krb5) (krb5-devel)	pkgconfig(krb5) (krb5-devel)	capability		
+libmalcontent-0-dev	Build-Depends	regolith-control-center	[amd64 arm64 armel armhf i386 mips64el ppc64el riscv64 s390x hppa powerpc ppc64 x32]	pkgconfig(malcontent-0) (malcontent-devel)	pkgconfig(malcontent-0) (malcontent-devel)	pkgconfig(malcontent-0) (malcontent-devel)	pkgconfig(malcontent-0) (malcontent-devel)	capability		
+libmm-glib-dev	Build-Depends	regolith-control-center	[linux-any]	pkgconfig(mm-glib) (ModemManager-glib-devel)	pkgconfig(mm-glib) (ModemManager-glib-devel)	pkgconfig(mm-glib) (ModemManager-glib-devel)	pkgconfig(mm-glib) (ModemManager-glib-devel)	capability		
+libnm-dev	Build-Depends	regolith-control-center	>= 1.52.0 [linux-any]	pkgconfig(libnm) (NetworkManager-libnm-devel)	pkgconfig(libnm) (NetworkManager-libnm-devel)	pkgconfig(libnm) (NetworkManager-libnm-devel)	pkgconfig(libnm) (NetworkManager-libnm-devel)	capability		
+libnma-gtk4-dev	Build-Depends	regolith-control-center	>= 1.10.2 [linux-any]	pkgconfig(libnma-gtk4) (libnma-gtk4-devel)	pkgconfig(libnma-gtk4) (libnma-gtk4-devel)	pkgconfig(libnma-gtk4) (libnma-gtk4-devel)	pkgconfig(libnma-gtk4) (libnma-gtk4-devel)	capability		
+libpam0g	Depends	gtklock		pam	pam	pam	pam	renamed		
+libpam0g-dev	Build-Depends	gtklock		pkgconfig(pam) (pam-devel)	pkgconfig(pam) (pam-devel)	pkgconfig(pam) (pam-devel)	pkgconfig(pam) (pam-devel)	capability		
+libpango1.0-dev	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12		pkgconfig(pango) (pango-devel)	pkgconfig(pango) (pango-devel)	pkgconfig(pango) (pango-devel)	pkgconfig(pango) (pango-devel)	capability		
+libpcre2-dev	Build-Depends	picom,sway-regolith,sway-regolith@package-sway-v1.12		pkgconfig(libpcre2-8) (pcre2-devel)	pkgconfig(libpcre2-8) (pcre2-devel)	pkgconfig(libpcre2-8) (pcre2-devel)	pkgconfig(libpcre2-8) (pcre2-devel)	capability		
+libpixman-1-dev	Build-Depends	picom,sway-regolith,sway-regolith@package-sway-v1.12		pkgconfig(pixman-1) (pixman-devel)	pkgconfig(pixman-1) (pixman-devel)	pkgconfig(pixman-1) (pixman-devel)	pkgconfig(pixman-1) (pixman-devel)	capability		
+libpolkit-gobject-1-dev	Build-Depends	regolith-control-center		pkgconfig(polkit-gobject-1) (polkit-devel)	pkgconfig(polkit-gobject-1) (polkit-devel)	pkgconfig(polkit-gobject-1) (polkit-devel)	pkgconfig(polkit-gobject-1) (polkit-devel)	capability		
+libpulse-dev	Build-Depends	i3status-rs,regolith-control-center,sway-audio-idle-inhibit		pkgconfig(libpulse) (pulseaudio-libs-devel)	pkgconfig(libpulse) (pulseaudio-libs-devel)	pkgconfig(libpulse) (pulseaudio-libs-devel)	pkgconfig(libpulse) (pulseaudio-libs-devel)	capability		
+libpulse0	Depends	i3status-rs,sway-audio-idle-inhibit		pulseaudio-libs	pulseaudio-libs	pulseaudio-libs	pulseaudio-libs	renamed		
+libpwquality-dev	Build-Depends	regolith-control-center		pkgconfig(pwquality) (libpwquality-devel)	pkgconfig(pwquality) (libpwquality-devel)	pkgconfig(pwquality) (libpwquality-devel)	pkgconfig(pwquality) (libpwquality-devel)	capability		
+libseat-dev	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12		pkgconfig(libseat) (libseat-devel)	pkgconfig(libseat) (libseat-devel)	pkgconfig(libseat) (libseat-devel)	pkgconfig(libseat) (libseat-devel)	capability		
+libsecret-1-dev	Build-Depends	regolith-control-center		pkgconfig(libsecret-1) (libsecret-devel)	pkgconfig(libsecret-1) (libsecret-devel)	pkgconfig(libsecret-1) (libsecret-devel)	pkgconfig(libsecret-1) (libsecret-devel)	capability		
+libsensors-dev	Build-Depends	i3status-rs		lm_sensors-devel	lm_sensors-devel	lm_sensors-devel	lm_sensors-devel	renamed		no pkg-config file; header and library only
+libsensors5	Depends	i3status-rs		lm_sensors-libs	lm_sensors-libs	lm_sensors-libs	lm_sensors-libs	renamed		
+libsigc++-2.0-dev	Build-Depends	i3-snapshot		pkgconfig(sigc++-2.0) (libsigc++20-devel)	pkgconfig(sigc++-2.0) (libsigc++20-devel)	pkgconfig(sigc++-2.0) (libsigc++20-devel)	pkgconfig(sigc++-2.0) (libsigc++20-devel)	capability		
+libsmbclient-dev	Build-Depends	regolith-control-center		pkgconfig(smbclient) (libsmbclient-devel)	pkgconfig(smbclient) (libsmbclient-devel)	pkgconfig(smbclient) (libsmbclient-devel)	pkgconfig(smbclient) (libsmbclient-devel)	capability		
+libsoup-3.0-dev	Build-Depends	regolith-control-center		pkgconfig(libsoup-3.0) (libsoup3-devel)	pkgconfig(libsoup-3.0) (libsoup3-devel)	pkgconfig(libsoup-3.0) (libsoup3-devel)	pkgconfig(libsoup-3.0) (libsoup3-devel)	capability		
+libspa-0.2-bluetooth	Recommends	regolith-control-center		pipewire-pulseaudio	pipewire-pulseaudio	pipewire-pulseaudio	pipewire-pulseaudio	renamed		alternatives: libspa-0.2-bluetooth | pulseaudio-module-bluetooth
+libssl-dev	Build-Depends	i3status-rs		pkgconfig(libssl) (openssl-devel)	pkgconfig(libssl) (openssl-devel)	pkgconfig(libssl) (openssl-devel,openssl3-devel)	pkgconfig(libssl) (openssl-devel,openssl3-devel)	capability		
+libssl3	Depends	i3status-rs		openssl-libs	openssl-libs	openssl-libs	openssl-libs	renamed		
+libsystemd-dev	Build-Depends	sway-audio-idle-inhibit,sway-regolith,sway-regolith@package-sway-v1.12	>= 239	pkgconfig(libsystemd) (systemd-devel)	pkgconfig(libsystemd) (systemd-devel)	pkgconfig(libsystemd) (systemd-devel)	pkgconfig(libsystemd) (systemd-devel)	capability		alternatives: libsystemd-dev (>= 239) | libelogind-dev (>= 239)
+libsystemd0	Depends	sway-audio-idle-inhibit		systemd-libs	systemd-libs	systemd-libs	systemd-libs	renamed		
+libtracker-sparql-3.0-dev	Build-Depends	ilia		pkgconfig(tracker-sparql-3.0) (tinysparql-devel)	pkgconfig(tracker-sparql-3.0) (tinysparql-devel)	pkgconfig(tracker-sparql-3.0) (tinysparql-devel)	pkgconfig(tracker-sparql-3.0) (tinysparql-devel)	capability		
+libtrawldb	Depends,Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12		regolith	regolith	regolith	regolith	regolith		built by the port from libtrawldb
+libudisks2-dev	Build-Depends	regolith-control-center		pkgconfig(udisks2) (libudisks2-devel)	pkgconfig(udisks2) (libudisks2-devel)	pkgconfig(udisks2) (libudisks2-devel)	pkgconfig(udisks2) (libudisks2-devel)	capability		
+libupower-glib-dev	Build-Depends	regolith-control-center	>= 1.90.6	pkgconfig(upower-glib) (upower-devel)	pkgconfig(upower-glib) (upower-devel)	pkgconfig(upower-glib) (upower-devel)	pkgconfig(upower-glib) (upower-devel)	capability		
+libwacom-dev	Build-Depends	regolith-control-center	[linux-any]	pkgconfig(libwacom) (libwacom-devel)	pkgconfig(libwacom) (libwacom-devel)	pkgconfig(libwacom) (libwacom-devel)	pkgconfig(libwacom) (libwacom-devel)	capability		
+libwayland-dev	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12	>= 1.21.0	pkgconfig(wayland-egl) (wayland-devel)	pkgconfig(wayland-egl) (wayland-devel)	pkgconfig(wayland-egl) (wayland-devel)	pkgconfig(wayland-egl) (wayland-devel)	capability		
+libwlroots-0.19-dev	Build-Depends	sway-regolith	>= 0.19.0~rc1	pkgconfig(wlroots-0.19) (wlroots-devel)	pkgconfig(wlroots-0.19) (wlroots0.19-devel)	pkgconfig(wlroots-0.19) (wlroots0.19-devel)	pkgconfig(wlroots-0.19) (wlroots0.19-devel)	capability		
+libwlroots-0.20-dev	Build-Depends	sway-regolith@package-sway-v1.12	>= 0.20.0	-	pkgconfig(wlroots-0.20) (wlroots-devel)	pkgconfig(wlroots-0.20) (wlroots-devel)	pkgconfig(wlroots-0.20) (wlroots-devel)	capability	03-01	only the sway 1.12 branch (package-sway-v1.12) needs it, and that branch builds on 45 and Rawhide; wlroots 0.20 exists on 44 and later, not on 43 | missing on 43
+libx11-dev	Build-Depends	regolith-unclutter-xfixes,xrescat		pkgconfig(x11) (libX11-devel)	pkgconfig(x11) (libX11-devel)	pkgconfig(x11) (libX11-devel)	pkgconfig(x11) (libX11-devel)	capability		
+libx11-xcb-dev	Build-Depends	picom		pkgconfig(x11-xcb) (libX11-devel)	pkgconfig(x11-xcb) (libX11-devel)	pkgconfig(x11-xcb) (libX11-devel)	pkgconfig(x11-xcb) (libX11-devel)	capability		
+libxcb-composite0-dev	Build-Depends	picom		pkgconfig(xcb-composite) (libxcb-devel)	pkgconfig(xcb-composite) (libxcb-devel)	pkgconfig(xcb-composite) (libxcb-devel)	pkgconfig(xcb-composite) (libxcb-devel)	capability		
+libxcb-damage0-dev	Build-Depends	picom		pkgconfig(xcb-damage) (libxcb-devel)	pkgconfig(xcb-damage) (libxcb-devel)	pkgconfig(xcb-damage) (libxcb-devel)	pkgconfig(xcb-damage) (libxcb-devel)	capability		
+libxcb-dpms0-dev	Build-Depends	picom		pkgconfig(xcb-dpms) (libxcb-devel)	pkgconfig(xcb-dpms) (libxcb-devel)	pkgconfig(xcb-dpms) (libxcb-devel)	pkgconfig(xcb-dpms) (libxcb-devel)	capability		
+libxcb-glx0-dev	Build-Depends	picom		pkgconfig(xcb-glx) (libxcb-devel)	pkgconfig(xcb-glx) (libxcb-devel)	pkgconfig(xcb-glx) (libxcb-devel)	pkgconfig(xcb-glx) (libxcb-devel)	capability		
+libxcb-image0-dev	Build-Depends	picom		pkgconfig(xcb-image) (xcb-util-image-devel)	pkgconfig(xcb-image) (xcb-util-image-devel)	pkgconfig(xcb-image) (xcb-util-image-devel)	pkgconfig(xcb-image) (xcb-util-image-devel)	capability		
+libxcb-present-dev	Build-Depends	picom		pkgconfig(xcb-present) (libxcb-devel)	pkgconfig(xcb-present) (libxcb-devel)	pkgconfig(xcb-present) (libxcb-devel)	pkgconfig(xcb-present) (libxcb-devel)	capability		
+libxcb-randr0-dev	Build-Depends	picom		pkgconfig(xcb-randr) (libxcb-devel)	pkgconfig(xcb-randr) (libxcb-devel)	pkgconfig(xcb-randr) (libxcb-devel)	pkgconfig(xcb-randr) (libxcb-devel)	capability		
+libxcb-render-util0-dev	Build-Depends	picom		pkgconfig(xcb-renderutil) (xcb-util-renderutil-devel)	pkgconfig(xcb-renderutil) (xcb-util-renderutil-devel)	pkgconfig(xcb-renderutil) (xcb-util-renderutil-devel)	pkgconfig(xcb-renderutil) (xcb-util-renderutil-devel)	capability		
+libxcb-render0-dev	Build-Depends	picom		pkgconfig(xcb-render) (libxcb-devel)	pkgconfig(xcb-render) (libxcb-devel)	pkgconfig(xcb-render) (libxcb-devel)	pkgconfig(xcb-render) (libxcb-devel)	capability		
+libxcb-shape0-dev	Build-Depends	picom		pkgconfig(xcb-shape) (libxcb-devel)	pkgconfig(xcb-shape) (libxcb-devel)	pkgconfig(xcb-shape) (libxcb-devel)	pkgconfig(xcb-shape) (libxcb-devel)	capability		
+libxcb-util-dev	Build-Depends	picom		pkgconfig(xcb-util) (xcb-util-devel)	pkgconfig(xcb-util) (xcb-util-devel)	pkgconfig(xcb-util) (xcb-util-devel)	pkgconfig(xcb-util) (xcb-util-devel)	capability		
+libxcb-xfixes0-dev	Build-Depends	picom		pkgconfig(xcb-xfixes) (libxcb-devel)	pkgconfig(xcb-xfixes) (libxcb-devel)	pkgconfig(xcb-xfixes) (libxcb-devel)	pkgconfig(xcb-xfixes) (libxcb-devel)	capability		
+libxcb-xinerama0-dev	Build-Depends	picom		pkgconfig(xcb-xinerama) (libxcb-devel)	pkgconfig(xcb-xinerama) (libxcb-devel)	pkgconfig(xcb-xinerama) (libxcb-devel)	pkgconfig(xcb-xinerama) (libxcb-devel)	capability		
+libxcb-xrm-dev	Build-Depends	i3xrocks		pkgconfig(xcb-xrm) (xcb-util-xrm-devel)	pkgconfig(xcb-xrm) (xcb-util-xrm-devel)	pkgconfig(xcb-xrm) (xcb-util-xrm-devel)	pkgconfig(xcb-xrm) (xcb-util-xrm-devel)	capability		
+libxcb1-dev	Build-Depends	i3xrocks,picom		pkgconfig(xcb) (libxcb-devel)	pkgconfig(xcb) (libxcb-devel)	pkgconfig(xcb) (libxcb-devel)	pkgconfig(xcb) (libxcb-devel)	capability		
+libxdg-basedir-dev	Build-Depends	picom		pkgconfig(libxdg-basedir) (libxdg-basedir-devel)	pkgconfig(libxdg-basedir) (libxdg-basedir-devel)	pkgconfig(libxdg-basedir) (libxdg-basedir-devel)	pkgconfig(libxdg-basedir) (libxdg-basedir-devel)	capability		
+libxext-dev	Build-Depends	picom		pkgconfig(xext) (libXext-devel)	pkgconfig(xext) (libXext-devel)	pkgconfig(xext) (libXext-devel)	pkgconfig(xext) (libXext-devel)	capability		
+libxi-dev	Build-Depends	regolith-unclutter-xfixes		pkgconfig(xi) (libXi-devel)	pkgconfig(xi) (libXi-devel)	pkgconfig(xi) (libXi-devel)	pkgconfig(xi) (libXi-devel)	capability		
+libxkbcommon-dev	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12	>= 1.5.0	pkgconfig(xkbcommon) (libxkbcommon-devel)	pkgconfig(xkbcommon) (libxkbcommon-devel)	pkgconfig(xkbcommon) (libxkbcommon-devel)	pkgconfig(xkbcommon) (libxkbcommon-devel)	capability		
+libxml2-dev	Build-Depends	regolith-control-center		pkgconfig(libxml-2.0) (libxml2-devel)	pkgconfig(libxml-2.0) (libxml2-devel)	pkgconfig(libxml-2.0) (libxml2-devel,libxml2_2.13-devel)	pkgconfig(libxml-2.0) (libxml2-devel,libxml2_2.13-devel)	capability		
+libxml2-utils	Depends,Build-Depends	gtklock,regolith-control-center,regolith-unclutter-xfixes,regolith-wm-config		libxml2	libxml2	libxml2	libxml2	renamed		
+libxslt1-dev	Build-Depends	regolith-unclutter-xfixes		pkgconfig(libxslt) (libxslt-devel)	pkgconfig(libxslt) (libxslt-devel)	pkgconfig(libxslt) (libxslt-devel)	pkgconfig(libxslt) (libxslt-devel)	capability		
+light	Depends	regolith-avizo,regolith-powerd		light	light	light	light	same		
+lm-sensors	Depends	regolith-i3xrocks-config		lm_sensors	lm_sensors	lm_sensors	lm_sensors	renamed		
+locales	Build-Depends	regolith-control-center		glibc-langpack-en	glibc-langpack-en	glibc-langpack-en	glibc-langpack-en	renamed		build-time locales for tests; glibc-all-langpacks if more are needed
+malcontent-gui	Suggests	regolith-control-center	[amd64 arm64 armel armhf i386 mips64el ppc64el riscv64 s390x hppa powerpc ppc64 x32]	malcontent-control	malcontent-control	malcontent-control	malcontent-control	renamed		
+mate-polkit-bin	Depends	regolith-wm-config		mate-polkit	mate-polkit	mate-polkit	mate-polkit	renamed		
+meson	Build-Depends	ilia,lago,libtrawldb,picom,regolith-avizo,regolith-control-center,remontoire,sway-audio-idle-inhibit,sway-regolith,sway-regolith@package-sway-v1.12,trawl,xdg-desktop-portal-regolith	>= 0.60.0; >=0.60; >=1.3	meson	meson	meson	meson	same		
+mlocate	Depends	regolith-rofi-config		plocate	plocate	plocate	plocate	renamed		
+mobile-broadband-provider-info	Recommends	regolith-control-center		mobile-broadband-provider-info	mobile-broadband-provider-info	mobile-broadband-provider-info	mobile-broadband-provider-info	same		
+moka-icon-theme	Depends	arc-icon-theme,regolith-look-extra		-	-	-	-	gap	10-parity	not packaged in Fedora; used by arc-icon-theme and regolith-look-extra
+mutter-common	Depends	regolith-control-center,regolith-session	>= 47	mutter-common	mutter-common	mutter-common	mutter-common	same		
+netcat-openbsd	Depends	regolith-i3xrocks-config		netcat	netcat	netcat	netcat	renamed		
+network-manager	Depends	regolith-i3xrocks-config		NetworkManager	NetworkManager	NetworkManager	NetworkManager	renamed		
+network-manager-gnome	Depends,Recommends	regolith-control-center,regolith-wm-config	<< 1.36.0-3~	network-manager-applet	network-manager-applet	network-manager-applet	network-manager-applet	renamed		alternatives: nm-connection-editor | network-manager-gnome (<< 1.36.0-3~)
+nm-connection-editor	Recommends	regolith-control-center		nm-connection-editor	nm-connection-editor	nm-connection-editor	nm-connection-editor	same		alternatives: nm-connection-editor | network-manager-gnome (<< 1.36.0-3~)
+nordic	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from nordic
+notification-daemon	Provides	regolith-rofication		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-rofication | Fedora also ships notification-daemon: 43 3.20.0-24.fc43, 44 3.20.0-25.fc44, 45 3.20.0-26.fc45, rawhide 3.20.0-26.fc45
+notify-osd	Conflicts	regolith-rofication		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+papirus-icon-theme	Depends	regolith-look-extra		papirus-icon-theme	papirus-icon-theme	papirus-icon-theme	papirus-icon-theme	same		
+perl	Depends	regolith-i3xrocks-config		perl	perl	perl	perl	same		
+picom	Depends	regolith-compositor-picom-glx		regolith	regolith	regolith	regolith	regolith		built by the port from picom | Fedora also ships picom: 43 13-1.fc43, 44 13-1.fc44, 45 13-2.fc45, rawhide 13-2.fc45
+pkg-config	Build-Depends	i3-snapshot,i3status-rs,picom,regolith-powerd,regolith-unclutter-xfixes,solarc-theme		pkg-config (pkgconf-pkg-config)	pkg-config (pkgconf-pkg-config)	pkg-config (pkgconf-pkg-config)	pkg-config (pkgconf-pkg-config)	capability		
+pkgconf	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12		pkgconf	pkgconf	pkgconf	pkgconf	same		
+playerctl	Depends	regolith-avizo,regolith-i3xrocks-config,regolith-powerd,regolith-wm-config		playerctl	playerctl	playerctl	playerctl	same		
+plymouth	Depends	plymouth-theme-regolith		plymouth	plymouth	plymouth	plymouth	same		
+plymouth-label	Depends	plymouth-theme-regolith		plymouth-plugin-label	plymouth-plugin-label	plymouth-plugin-label	plymouth-plugin-label	renamed		
+plymouth-theme	Provides	plymouth-theme-regolith		regolith	regolith	regolith	regolith	regolith		built by the port from plymouth-theme-regolith
+po-debconf	Build-Depends	ilia,lago,xdg-desktop-portal-regolith		po-debconf	po-debconf	po-debconf	po-debconf	drop		debconf template translation; no debconf on Fedora
+polkitd	Recommends	regolith-control-center,sway-regolith,sway-regolith@package-sway-v1.12		polkit	polkit	polkit	polkit	renamed		
+power-profiles-daemon	Recommends	regolith-control-center		power-profiles-daemon	power-profiles-daemon	power-profiles-daemon	power-profiles-daemon	same		
+powermgmt-base	Depends	regolith-powerd,regolith-wm-config		-	-	-	-	problem	05-01	provides on_ac_power, which no Fedora package ships; regolith-powerd (02-08) and regolith-wm-config use it
+pulseaudio-module-bluetooth	Recommends	regolith-control-center		pulseaudio-module-bluetooth	pulseaudio-module-bluetooth	pulseaudio-module-bluetooth	pulseaudio-module-bluetooth	same		alternatives: libspa-0.2-bluetooth | pulseaudio-module-bluetooth
+pulseaudio-utils	Depends,Recommends	regolith-avizo		pulseaudio-utils	pulseaudio-utils	pulseaudio-utils	pulseaudio-utils	same		
+python3	Depends	i3-next-workspace,i3-swap-focus,picom,regolith-i3xrocks-config	>= 3.5	python3	python3	python3	python3	same		
+python3-all	Build-Depends	i3-swap-focus,python3-i3ipc,regolith-rofication		-	-	-	-	drop		Debian helper for building against all Python versions; use python3-devel
+python3-dbus	Depends,Build-Depends	python3-i3ipc,regolith-i3xrocks-config,regolith-rofication	>= 1.2.6	python3-dbus	python3-dbus	python3-dbus	python3-dbus	same		
+python3-dbusmock	Build-Depends	regolith-control-center		python3-dbusmock	python3-dbusmock	python3-dbusmock	python3-dbusmock	same		
+python3-gi	Depends,Build-Depends	python3-i3ipc,regolith-rofication	>= 3.26.1	python3-gobject	python3-gobject	python3-gobject	python3-gobject	renamed		
+python3-i3ipc	Depends	i3-next-workspace,i3-swap-focus,regolith-i3xrocks-config		regolith	regolith	regolith	regolith	regolith		built by the port from python3-i3ipc | Fedora also ships python3-i3ipc: 43 2.2.1-19.fc43, 44 2.2.1-20.fc44, 45 2.2.1-22.fc45, rawhide 2.2.1-22.fc45
+python3-setuptools	Build-Depends	i3-swap-focus,python3-i3ipc,regolith-rofication		python3-setuptools	python3-setuptools	python3-setuptools	python3-setuptools	same		
+python3-xlib	Depends	python3-i3ipc		python3-xlib	python3-xlib	python3-xlib	python3-xlib	same		
+realmd	Suggests	regolith-control-center		realmd	realmd	realmd	realmd	same		
+regolith-avizo	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-avizo
+regolith-compositor	Depends,Provides,Conflicts	regolith-compositor-compton-glx,regolith-compositor-none,regolith-compositor-picom-glx,regolith-compositor-xcompmgr,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-compositor-compton-glx | alternatives: regolith-compositor-none | regolith-compositor
+regolith-compositor-none	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-compositor-none | alternatives: regolith-compositor-none | regolith-compositor
+regolith-compositor-picom-glx	Recommends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-compositor-picom-glx
+regolith-compton-config	Conflicts	regolith-compositor-compton-glx		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-conky-config	Conflicts	regolith-ftue		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-control-center	Depends,Recommends	regolith-i3xrocks-config,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-control-center
+regolith-default-settings	Depends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-default-settings
+regolith-desktop-meta	Provides,Conflicts	regolith-desktop		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-desktop
+regolith-desktop-session	Depends,Provides	regolith-desktop,regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-session
+regolith-displayd	Depends	regolith-session,regolith-wm-config	>=0.3.0	regolith	regolith	regolith	regolith	regolith		built by the port from regolith-displayd
+regolith-ftue	Depends,Recommends	regolith-i3xrocks-config,regolith-session,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-ftue
+regolith-i3-compositor	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-config	Conflicts	regolith-wm-config		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-i3-control-center	Recommends	regolith-session		-	-	-	-	drop		legacy Regolith name in an alternative; the other branch is built by the port | not a package in Ubuntu resolute main/universe | alternatives: regolith-i3-control-center-regolith | regolith-i3-control-center
+regolith-i3-control-center-gnome	Conflicts	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-control-center-regolith	Recommends,Conflicts	regolith-session,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config | alternatives: regolith-i3-control-center-regolith | regolith-i3-control-center
+regolith-i3-dbus-activation	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-default-style	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-gaps	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-i3xrocks	Recommends	regolith-session,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-ilia	Recommends,Conflicts	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-rofi	Conflicts	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-root-config	Depends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-session	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3-unclutter	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-i3xrocks-config	Depends,Recommends	regolith-i3xrocks-config,regolith-session,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-i3xrocks-config
+regolith-inputd	Depends	regolith-session,regolith-wm-config	>=0.3.0	regolith	regolith	regolith	regolith	regolith		built by the port from regolith-inputd
+regolith-look-2	Provides	regolith-look-default,regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-look-default
+regolith-look-default	Depends,Conflicts	regolith-look-default,regolith-session	< 0.7.2	regolith	regolith	regolith	regolith	regolith		built by the port from regolith-look-default
+regolith-look-default-loader	Depends	regolith-look-default,regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-look-default
+regolith-picom-config	Conflicts	regolith-compositor-picom-glx		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-powerd	Depends	regolith-wm-config	>=0.3.0	regolith	regolith	regolith	regolith	regolith		built by the port from regolith-powerd
+regolith-resource-loader	Depends,Provides	regolith-look-default,regolith-session,trawl,xrescat		regolith	regolith	regolith	regolith	regolith		built by the port from trawl
+regolith-rofi-config	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-rofi-config
+regolith-rofication	Depends	regolith-i3xrocks-config,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-rofication
+regolith-session-common	Depends	regolith-session	>= 0.7.1	regolith	regolith	regolith	regolith	regolith		built by the port from regolith-session
+regolith-session-flashback	Conflicts	regolith-session	<= 0.6.4; <= 0.9.3	regolith	regolith	regolith	regolith	regolith		built by the port from regolith-session
+regolith-session-flashback-ext	Recommends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-session
+regolith-styles	Conflicts	regolith-look-default		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-sway-background	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-clamshell	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-config	Conflicts	regolith-wm-config		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-sway-control-center-gnome	Recommends,Conflicts	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config | alternatives: regolith-sway-control-center-regolith | regolith-sway-control-center-gnome
+regolith-sway-control-center-regolith	Recommends,Conflicts	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config | alternatives: regolith-sway-control-center-regolith | regolith-sway-control-center-gnome
+regolith-sway-dbus-activation	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-default-style	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-gaps	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-grimshot	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-gsd	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-gtklock	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-i3status-rs	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-ilia	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-kbd-layout	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-media-keys	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-next-workspace	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-polkit	Recommends,Conflicts	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-polkit-xwayland	Conflicts	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-root-config	Depends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-screensharing	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-session	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-sway-touchpad-gestures	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-sway-touchpad-gestures
+regolith-sway-touchpad-guestures	Conflicts	regolith-sway-touchpad-gestures		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-sway-unclutter	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-unclutter-xfixes	Depends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-unclutter-xfixes
+regolith-wm-base-launchers	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-wm-config	Depends	regolith-sway-touchpad-gestures,regolith-wm-config	>=4.6.1	regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-wm-control-center	Provides	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-wm-ftue	Recommends	regolith-session,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-wm-gnome	Conflicts	regolith-wm-config		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-wm-ilia	Conflicts	regolith-wm-config		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-wm-navigation	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-wm-networkmanager	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-wm-next-workspace	Recommends,Conflicts	regolith-wm-config		-	-	-	-	drop		dangling Regolith name: no package provides it (see distro-gaps) | not a package in Ubuntu resolute main/universe
+regolith-wm-remontoire	Conflicts	regolith-wm-config		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-wm-resize	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-wm-rofication	Conflicts	regolith-wm-config		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+regolith-wm-rofication-ilia	Recommends,Conflicts	regolith-session,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-wm-swap-focus	Recommends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+regolith-wm-workspace-config	Recommends	regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-wm-config
+remontoire	Depends	regolith-i3xrocks-config		regolith	regolith	regolith	regolith	regolith		built by the port from remontoire
+rofi	Depends	regolith-wm-config		rofi	rofi	rofi	rofi	same		
+rygel	Recommends	regolith-control-center		rygel	rygel	rygel	rygel	same		alternatives: rygel | rygel-tracker
+rygel-tracker	Recommends	regolith-control-center		-	-	-	-	drop		alternative to rygel, which resolves | alternatives: rygel | rygel-tracker
+scdoc	Build-Depends	gtklock,sway-regolith,sway-regolith@package-sway-v1.12	>= 1.9.2	scdoc	scdoc	scdoc	scdoc	same		
+session-shortcuts	Conflicts	regolith-session		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+shared-mime-info	Build-Depends	regolith-control-center		shared-mime-info	shared-mime-info	shared-mime-info	shared-mime-info	same		
+software-properties-gtk	Suggests	regolith-desktop,regolith-session		-	-	-	-	drop		Ubuntu archive manager (Suggests only)
+solarc-theme	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from solarc-theme
+sway	Depends,Provides,Conflicts	regolith-powerd,sway-regolith,sway-regolith@package-sway-v1.12		regolith	regolith	regolith	regolith	regolith		built by the port from sway-regolith | Fedora also ships sway: 43 1.11-2.fc43, 44 1.11-3.fc44, 45 1.12-2.fc45, rawhide 1.12-2.fc45 | alternatives: sway | sway-regolith
+sway-audio-idle-inhibit	Recommends	regolith-session	>= 2.0.0	regolith	regolith	regolith	regolith	regolith		built by the port from sway-audio-idle-inhibit
+sway-backgrounds	Suggests	sway-regolith,sway-regolith@package-sway-v1.12		regolith	regolith	regolith	regolith	regolith		built by the port from sway-regolith@package-sway-v1.12
+sway-regolith	Depends,Suggests	regolith-powerd,regolith-session,regolith-wm-config,sway-regolith@package-sway-v1.12		regolith	regolith	regolith	regolith	regolith		built by the port from sway-regolith | alternatives: i3-wm (>= 4.20) | sway-regolith ; sway | sway-regolith
+swaybg	Depends	sway-regolith,sway-regolith@package-sway-v1.12		swaybg	swaybg	swaybg	swaybg	same		
+swayidle	Depends,Suggests	regolith-powerd,regolith-session,sway-regolith,sway-regolith@package-sway-v1.12		swayidle	swayidle	swayidle	swayidle	same		
+swaylock	Suggests	sway-regolith,sway-regolith@package-sway-v1.12		swaylock	swaylock	swaylock	swaylock	same		
+sysstat	Depends	regolith-i3xrocks-config		sysstat	sysstat	sysstat	sysstat	same		
+system-config-printer-common	Recommends	regolith-control-center		system-config-printer-libs	system-config-printer-libs	system-config-printer-libs	system-config-printer-libs	renamed		
+systemd	Depends	regolith-powerd		systemd	systemd	systemd	systemd	same		
+systemd-dev	Build-Depends	xdg-desktop-portal-regolith		pkgconfig(systemd) (systemd)	pkgconfig(systemd) (systemd)	pkgconfig(systemd) (systemd)	pkgconfig(systemd) (systemd)	capability		
+tailscale	Depends	regolith-i3xrocks-config		tailscale	tailscale	tailscale	tailscale	same		
+tecla	Depends,Build-Depends	regolith-control-center	>= 47	tecla	tecla	tecla	tecla	same		
+trawlcat	Depends	regolith-session,regolith-wm-config		regolith	regolith	regolith	regolith	regolith		built by the port from trawl
+trawld	Depends	libtrawldb,regolith-session,trawl		regolith	regolith	regolith	regolith	regolith		built by the port from trawl
+trawldb	Depends	regolith-powerd,regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from trawl
+tree	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12		tree	tree	tree	tree	same		
+ttf-bitstream-vera	Depends	regolith-look-default		bitstream-vera-sans-mono-fonts	bitstream-vera-sans-mono-fonts	bitstream-vera-sans-mono-fonts	bitstream-vera-sans-mono-fonts	renamed		
+tzdata	Build-Depends	regolith-control-center		tzdata	tzdata	tzdata	tzdata	same		
+unclutter-startup	Conflicts	regolith-desktop		-	-	-	-	drop		only named in Conflicts; nothing on Fedora to conflict with
+unclutter-xfixes	Provides,Conflicts	regolith-unclutter-xfixes		regolith	regolith	regolith	regolith	regolith		built by the port from regolith-unclutter-xfixes | Fedora also ships unclutter-xfixes: 43 1.6-8.fc43, 44 1.6-9.fc44, 45 1.6-10.fc45, rawhide 1.6-10.fc45
+update-manager	Suggests	regolith-desktop,regolith-session		-	-	-	-	drop		Ubuntu updater (Suggests only)
+update-notifier-common	Depends	regolith-i3xrocks-config		-	-	-	-	problem	10-parity	Ubuntu apt-check for i3xrocks update counts; needs a dnf equivalent (X11 i3xrocks config)
+upower	Depends	regolith-i3xrocks-config		upower	upower	upower	upower	same		
+uthash-dev	Build-Depends	picom		uthash-devel	uthash-devel	uthash-devel	uthash-devel	renamed		
+uuid-runtime	Depends	regolith-ftue		util-linux	util-linux	util-linux	util-linux	renamed		
+valac	Build-Depends	remontoire	>= 0.40.0	vala	vala	vala	vala	renamed		
+valac-0.56-vapi	Build-Depends	ilia,lago,regolith-avizo,xdg-desktop-portal-regolith		vala	vala	vala	vala	renamed		Fedora's vala package carries the VAPI files
+valac-bin	Build-Depends	ilia,lago,regolith-avizo,xdg-desktop-portal-regolith		/usr/bin/vala (vala)	/usr/bin/vala (vala)	/usr/bin/vala (vala)	/usr/bin/vala (vala)	capability		
+wayland-protocols	Build-Depends	sway-regolith,sway-regolith@package-sway-v1.12	>= 1.24; >= 1.41	pkgconfig(wayland-protocols) (wayland-protocols-devel)	pkgconfig(wayland-protocols) (wayland-protocols-devel)	pkgconfig(wayland-protocols) (wayland-protocols-devel)	pkgconfig(wayland-protocols) (wayland-protocols-devel)	capability		
+webp-pixbuf-loader	Depends	regolith-control-center		webp-pixbuf-loader	webp-pixbuf-loader (gdk-pixbuf2)	webp-pixbuf-loader (gdk-pixbuf2)	webp-pixbuf-loader (gdk-pixbuf2)	capability		
+wget	Build-Depends	fonts-jetbrains-mono		wget (wget1-wget,wget2-wget)	wget (wget1-wget,wget2-wget)	wget (wget1-wget,wget2-wget)	wget (wget1-wget,wget2-wget)	capability		
+whitesur-gtk-theme	Depends	regolith-look-extra		regolith	regolith	regolith	regolith	regolith		built by the port from whitesur-gtk-theme
+wl-clipboard	Depends	regolith-session		wl-clipboard	wl-clipboard	wl-clipboard	wl-clipboard	same		
+wmenu	Recommends	sway-regolith,sway-regolith@package-sway-v1.12		wmenu	wmenu	wmenu	wmenu	same		
+x-terminal-emulator	Depends	regolith-session		-	-	-	-	problem	05-02	Debian virtual package and alternative; Fedora has no x-terminal-emulator, regolith-session must pick a terminal another way | Debian virtual package, provided by alacritty, blackbox-terminal, cool-retro-term, deepin-terminal, eterm
+x11-xserver-utils	Depends	regolith-i3xrocks-config,regolith-session		xset	xset	xset	xset	renamed		
+xcompmgr	Depends	regolith-compositor-xcompmgr		xcompmgr	xcompmgr	xcompmgr	xcompmgr	same		
+xdg-desktop-portal	Depends	regolith-wm-config,xdg-desktop-portal-regolith	>=1.20	xdg-desktop-portal	xdg-desktop-portal	xdg-desktop-portal	xdg-desktop-portal	same		
+xdg-desktop-portal-gtk	Suggests	sway-regolith,sway-regolith@package-sway-v1.12		xdg-desktop-portal-gtk	xdg-desktop-portal-gtk	xdg-desktop-portal-gtk	xdg-desktop-portal-gtk	same		
+xdg-desktop-portal-regolith-wayland-config	Recommends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from xdg-desktop-portal-regolith
+xdg-desktop-portal-regolith-x11-config	Recommends	regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from xdg-desktop-portal-regolith
+xdg-desktop-portal-wlr	Depends,Suggests	regolith-wm-config,sway-regolith,sway-regolith@package-sway-v1.12		xdg-desktop-portal-wlr	xdg-desktop-portal-wlr	xdg-desktop-portal-wlr	xdg-desktop-portal-wlr	same		
+xdg-utils	Depends	regolith-i3xrocks-config,regolith-rofi-config,regolith-wm-config		xdg-utils	xdg-utils	xdg-utils	xdg-utils	same		
+xdotool	Depends	regolith-wm-config		xdotool	xdotool	xdotool	xdotool	same		
+xorg	Depends	regolith-session		xorg-x11-server-Xorg	xorg-x11-server-Xorg	xorg-x11-server-Xorg	xorg-x11-server-Xorg	renamed		
+xrescat	Depends	regolith-i3xrocks-config,regolith-session		regolith	regolith	regolith	regolith	regolith		built by the port from xrescat
+xsltproc	Build-Depends	picom,regolith-unclutter-xfixes		xsltproc (libxslt)	xsltproc (libxslt)	xsltproc (libxslt)	xsltproc (libxslt)	capability		
+xwayland	Depends	regolith-session		xorg-x11-server-Xwayland	xorg-x11-server-Xwayland	xorg-x11-server-Xwayland	xorg-x11-server-Xwayland	renamed		
+zlib1g-dev	Build-Depends	i3-snapshot		pkgconfig(zlib) (zlib-ng-compat-devel)	pkgconfig(zlib) (zlib-ng-compat-devel)	pkgconfig(zlib) (zlib-ng-compat-devel)	pkgconfig(zlib) (zlib-ng-compat-devel)	capability		

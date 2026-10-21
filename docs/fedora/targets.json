@@ -1,0 +1,144 @@
+{
+  "targets": [
+    {
+      "release": "43",
+      "arches": [
+        "x86_64",
+        "aarch64"
+      ],
+      "blocking": true,
+      "kind": "supported",
+      "bodhi_state": "current",
+      "eol": "2026-12-02",
+      "versions": {
+        "gnome-control-center": "49.9-1.fc43",
+        "gnome-shell": "49.10-1.fc43",
+        "sway": "1.11-2.fc43",
+        "gtklock": null,
+        "gtk3": "3.24.52-1.fc43",
+        "gtk4": "4.20.4-1.fc43",
+        "cargo-rpm-macros": "28.5-1.fc43",
+        "wlroots": {
+          "wlroots": "0.19.3-1.fc43",
+          "wlroots0.15": "0.15.1-7.fc43",
+          "wlroots0.16": "0.16.2-5.fc43",
+          "wlroots0.17": "0.17.4-4.fc43",
+          "wlroots0.18": "0.18.3-1.fc43"
+        },
+        "sway_links_wlroots": {
+          "soname": "libwlroots-0.19.so()(64bit)",
+          "package": "wlroots",
+          "version": "0.19.3-1.fc43",
+          "devel": "wlroots-devel"
+        }
+      }
+    },
+    {
+      "release": "44",
+      "arches": [
+        "x86_64",
+        "aarch64"
+      ],
+      "blocking": true,
+      "kind": "supported",
+      "bodhi_state": "current",
+      "eol": "2027-06-02",
+      "versions": {
+        "gnome-control-center": "50.4-1.fc44",
+        "gnome-shell": "50.6-1.fc44",
+        "sway": "1.11-3.fc44",
+        "gtklock": "4.0.0-3.fc44",
+        "gtk3": "3.24.52-2.fc44",
+        "gtk4": "4.22.5-2.fc44",
+        "cargo-rpm-macros": "28.5-1.fc44",
+        "wlroots": {
+          "wlroots": "0.20.2-1.fc44",
+          "wlroots0.15": "0.15.1-8.fc44",
+          "wlroots0.17": "0.17.4-7.fc44",
+          "wlroots0.18": "0.18.3-5.fc44",
+          "wlroots0.19": "0.19.3-1.fc44"
+        },
+        "sway_links_wlroots": {
+          "soname": "libwlroots-0.19.so()(64bit)",
+          "package": "wlroots0.19",
+          "version": "0.19.3-1.fc44",
+          "devel": "wlroots0.19-devel"
+        }
+      }
+    }
+  ],
+  "early_warning": [
+    {
+      "release": "45",
+      "arches": [
+        "x86_64",
+        "aarch64"
+      ],
+      "blocking": false,
+      "kind": "branched",
+      "bodhi_state": "frozen",
+      "eol": "2027-11-24",
+      "versions": {
+        "gnome-control-center": "51.1-1.fc45",
+        "gnome-shell": "51.1-1.fc45",
+        "sway": "1.12-2.fc45",
+        "gtklock": "4.0.0-4.fc45",
+        "gtk3": "3.24.52-6.fc45",
+        "gtk4": "4.24.1-1.fc45",
+        "cargo-rpm-macros": "28.5-2.fc45",
+        "wlroots": {
+          "wlroots": "0.20.2-2.fc45",
+          "wlroots0.18": "0.18.3-6.fc45",
+          "wlroots0.19": "0.19.3-2.fc45"
+        },
+        "sway_links_wlroots": {
+          "soname": "libwlroots-0.20.so()(64bit)",
+          "package": "wlroots",
+          "version": "0.20.2-2.fc45",
+          "devel": "wlroots-devel"
+        }
+      }
+    }
+  ],
+  "canary": [
+    {
+      "release": "rawhide",
+      "arches": [
+        "x86_64",
+        "aarch64"
+      ],
+      "blocking": false,
+      "kind": "rawhide",
+      "bodhi_state": "pending",
+      "eol": "2028-05-24",
+      "versions": {
+        "gnome-control-center": "51.1-1.fc46",
+        "gnome-shell": "51.1-1.fc46",
+        "sway": "1.12-2.fc45",
+        "gtklock": "4.0.0-4.fc45",
+        "gtk3": "3.24.52-6.fc45",
+        "gtk4": "4.24.1-1.fc46",
+        "cargo-rpm-macros": "28.5-2.fc45",
+        "wlroots": {
+          "wlroots": "0.20.2-2.fc45",
+          "wlroots0.18": "0.18.3-6.fc45",
+          "wlroots0.19": "0.19.3-2.fc45"
+        },
+        "sway_links_wlroots": {
+          "soname": "libwlroots-0.20.so()(64bit)",
+          "package": "wlroots",
+          "version": "0.20.2-2.fc45",
+          "devel": "wlroots-devel"
+        }
+      },
+      "fedora_version": "46"
+    }
+  ],
+  "updated": "2026-10-22",
+  "rule": "Every Fedora release in Bodhi state current is a blocking Target, so the oldest release leaves at its EOL. A branched release that is not yet current (Bodhi state pending or frozen) is a non-blocking early-warning Target until it becomes current. Rawhide is the non-blocking Canary Target. Architectures: x86_64 and aarch64.",
+  "sources": {
+    "bodhi": "https://bodhi.fedoraproject.org/releases/?state=current|frozen|pending",
+    "versions": "dnf repoquery --latest-limit=1 in registry.fedoraproject.org/fedora:<release>, --forcearch per arch, default repos",
+    "versions_indexed": "2026-10-19"
+  }
+}
