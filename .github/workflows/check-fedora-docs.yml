@@ -1,0 +1,26 @@
+name: Check Fedora Docs
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "docs/fedora/**"
+      - "stage/*/fedora/**"
+      - "tests/fedora-docs.sh"
+  push:
+    branches:
+      - "fedora/**"
+    paths:
+      - "docs/fedora/**"
+      - "stage/*/fedora/**"
+      - "tests/fedora-docs.sh"
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check targets.json and dependency-map.tsv
+        run: tests/fedora-docs.sh
