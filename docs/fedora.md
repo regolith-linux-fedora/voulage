@@ -46,6 +46,10 @@ Only unstable and testing are published by automation. The stable project
 
 ## Running locally
 
+`ci-fedora` is private: log in first with a classic token that has `read:packages`
+(`echo $TOKEN | docker login ghcr.io -u <login> --password-stdin`). In CI the
+workflow logs in with the `GHCR_READ_TOKEN` org secret, or `GITHUB_TOKEN`.
+
 ```shell
 docker run --rm --privileged -v "$PWD:/voulage" ghcr.io/regolith-linux-fedora/ci-fedora:43-amd64 \
   /voulage/.github/scripts/main.sh build \
