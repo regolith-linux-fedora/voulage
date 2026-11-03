@@ -28,6 +28,12 @@ projects' chroots.
 The spec is `<package>.spec` at the top of the package repo. For each changed
 package the extension:
 
+1. in unstable (and experimental), which build branch heads, appends a
+   snapshot marker to the spec's `Release`: the UTC committer date and time and
+   the short commit hash, so `1%{?dist}` becomes
+   `1.20261026.185700git52ece7e%{?dist}`. Every new commit is published under a
+   higher version-release than the last, and still below the next release.
+   Testing builds release tags and keeps the spec's `Release`;
 1. creates `Source0` from the checked-out tree with `git archive`, named as
    the spec names it, and collects the other sources from the repo or by URL;
 1. builds a source RPM with `rpmbuild -bs`;

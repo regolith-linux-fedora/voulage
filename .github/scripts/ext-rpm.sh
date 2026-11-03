@@ -135,10 +135,62 @@ copr_repo_available() {
   return 1
 }
 
-# Update the changelog to specify the target distribution codename
+# Stages that build branch heads instead of release tags (see handle_package()
+# in main.sh), as in ext-debian.sh.
+is_snapshot_stage() {
+  [ "$STAGE" == "experimental" ] || [ "$STAGE" == "unstable" ]
+}
+
+# Print the snapshot marker of the checked out commit: the UTC committer date
+# and time and the short commit hash, for example "20261026.185700git52ece7e".
+# It only depends on the commit, so every chroot that builds the same commit
+# gets the same version-release, and building a commit again does not change it.
+snapshot_marker() {
+  local src="$1"
+  local commit_time commit_hash
+
+  if ! commit_time=$(TZ=UTC0 git -C "$src" -c safe.directory='*' show -s --format=%cd --date=format-local:%Y%m%d.%H%M%S HEAD 2>/dev/null) ||
+    ! commit_hash=$(git -C "$src" -c safe.directory='*' rev-parse HEAD 2>/dev/null); then
+    return 1
+  fi
+
+  echo "${commit_time}git${commit_hash:0:7}"
+}
+
+# Fedora's %{?dist} replaces Upstream's -1regolith-<codename> suffix, so only
+# snapshot stages change the spec: they append the snapshot marker to Release,
+# so that every new commit is published under a new, higher version-release
+# instead of the one already in COPR. "Release: 1%{?dist}" becomes
+# "Release: 1.20261026.185700git52ece7e%{?dist}", which sorts above 1 and below
+# 2 or any higher Version.
 update_changelog() {
-  # Fedora's %{?dist} replaces Upstream's -1regolith-<codename> suffix
-  :
+  is_snapshot_stage || return 0
+
+  local spec marker
+  # dist_valid reports packages without a spec
+  spec="$(find_spec 2>/dev/null)" || return 0
+
+  if ! marker=$(snapshot_marker "$PKG_BUILD_PATH/$PACKAGE_NAME"); then
+    echo "::warning::No git commit found for $PACKAGE_NAME, building it for $STAGE without a snapshot release."
+    return 0
+  fi
+
+  if grep -q "^Release:.*$marker" "$spec"; then
+    return 0
+  fi
+
+  if ! grep -q "^Release:" "$spec" || grep -q "^Release:.*autorelease" "$spec"; then
+    echo "::warning::$PACKAGE_NAME has no plain Release: field, building it for $STAGE without a snapshot release."
+    return 0
+  fi
+
+  if grep -q '^Release:.*%{?dist}' "$spec"; then
+    sed -i -E "s/^(Release:.*)%\{\?dist\}/\1.${marker}%{?dist}/" "$spec"
+  else
+    sed -i -E "s/^(Release:.*[^[:space:]])[[:space:]]*$/\1.${marker}/" "$spec"
+  fi
+
+  echo -e "\033[0;34mSnapshot release for $STAGE: $(grep -m1 '^Release:' "$spec" | sed -E 's/^Release:[[:space:]]*//')\033[0m"
 }
 
 # Determine if the package can be built for this distro: it needs a spec
