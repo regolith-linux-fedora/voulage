@@ -65,19 +65,17 @@
           "devel": "wlroots0.19-devel"
         }
       }
-    }
-  ],
-  "early_warning": [
+    },
     {
       "release": "45",
       "arches": [
         "x86_64",
         "aarch64"
       ],
-      "blocking": false,
-      "kind": "branched",
-      "bodhi_state": "frozen",
-      "eol": "2027-11-24",
+      "blocking": true,
+      "kind": "supported",
+      "bodhi_state": "current",
+      "eol": "2027-12-08",
       "versions": {
         "gnome-control-center": "51.1-1.fc45",
         "gnome-shell": "51.1-1.fc45",
@@ -100,6 +98,7 @@
       }
     }
   ],
+  "early_warning": [],
   "canary": [
     {
       "release": "rawhide",
@@ -134,11 +133,11 @@
       "fedora_version": "46"
     }
   ],
-  "updated": "2026-10-22",
+  "updated": "2026-11-03",
   "rule": "Every Fedora release in Bodhi state current is a blocking Target, so the oldest release leaves at its EOL. A branched release that is not yet current (Bodhi state pending or frozen) is a non-blocking early-warning Target until it becomes current. Rawhide is the non-blocking Canary Target. Architectures: x86_64 and aarch64.",
   "sources": {
     "bodhi": "https://bodhi.fedoraproject.org/releases/?state=current|frozen|pending",
     "versions": "dnf repoquery --latest-limit=1 in registry.fedoraproject.org/fedora:<release>, --forcearch per arch, default repos",
-    "versions_indexed": "2026-10-19"
+    "versions_indexed": "2026-11-03"
   }
 }
