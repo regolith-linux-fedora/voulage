@@ -1,0 +1,43 @@
+name: Check Fedora Backend
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/scripts/ext-rpm.sh"
+      - ".github/workflows/build-rpm-v1.yml"
+      - ".github/workflows/check-fedora-backend.yml"
+      - "stage/*/fedora/**"
+      - "tests/fedora-model.sh"
+      - "tests/fedora-snapshot-release.sh"
+  push:
+    branches:
+      - "fedora/**"
+    paths:
+      - ".github/scripts/ext-rpm.sh"
+      - ".github/workflows/build-rpm-v1.yml"
+      - ".github/workflows/check-fedora-backend.yml"
+      - "stage/*/fedora/**"
+      - "tests/fedora-model.sh"
+      - "tests/fedora-snapshot-release.sh"
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    # public image: tests/fedora-snapshot-release.sh needs rpm and GNU sed
+    container: fedora:43
+    steps:
+      - name: Install tools
+        run: dnf -y install git-core jq rpm-build ShellCheck
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: ShellCheck
+        run: shellcheck -x .github/scripts/ext-rpm.sh tests/fedora-model.sh tests/fedora-snapshot-release.sh
+
+      - name: Check the Fedora package models
+        run: tests/fedora-model.sh
+
+      - name: Check snapshot releases
+        run: tests/fedora-snapshot-release.sh
