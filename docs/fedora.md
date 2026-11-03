@@ -9,7 +9,7 @@ compares them with the committed manifest and builds only what changed.
 
 ```text
 stage/<stage>/fedora/package-model.json             # every package, pointed at its regolith-linux-fedora fork
-stage/<stage>/fedora/<release>/package-model.json   # per release overrides (e.g. 43, 44, rawhide)
+stage/<stage>/fedora/<release>/package-model.json   # per release overrides (43, 44, 45, rawhide)
 ```
 
 - Unstable refs are `fedora/<upstream-ref>` branches in the forks.
