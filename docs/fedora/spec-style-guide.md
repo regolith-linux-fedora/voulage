@@ -138,9 +138,6 @@ Templates workflow builds them from small fixture sources
   while it builds the SRPM: `cargo vendor --locked` against the repo's
   `Cargo.lock`, packed as `Source1: %{name}-%{version}-vendor.tar.xz`. COPR then
   builds offline from the SRPM.
-  **Not implemented yet:** `ext-rpm.sh` doesn't make the vendor tarball today;
-  `stage_source` stops with "neither in the repo nor a URL". Until it does,
-  Rust packages can't be built by voulage or the package workflows.
 - `%prep`: `%autosetup -a1`, then `%cargo_prep -v vendor`.
 - `%build`: `%cargo_build`, then `%{cargo_license_summary}`,
   `%{cargo_license} > LICENSE.dependencies` and `%{cargo_vendor_manifest}`.
