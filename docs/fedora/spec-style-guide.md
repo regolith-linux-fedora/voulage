@@ -116,8 +116,12 @@ only an old Regolith name gets `Obsoletes`.
 
 ## 8. Templates
 
-One worked spec per package type in [templates/](templates/). Each parses and
-passes `rpmlint` with no errors.
+One worked spec per package type in [templates/](templates/). Each builds in
+mock and passes `rpmlint` with no errors on every Target: the Check Fedora
+Templates workflow builds them from small fixture sources
+(`tests/fedora-template-build.sh <template> <release>`; the fixtures are in
+`tests/fedora-template-fixtures.sh`). The fedora-fork template needs wlroots
+0.20, so it doesn't build on Fedora 43.
 
 | Template | Package type |
 |---|---|
@@ -134,6 +138,9 @@ passes `rpmlint` with no errors.
   while it builds the SRPM: `cargo vendor --locked` against the repo's
   `Cargo.lock`, packed as `Source1: %{name}-%{version}-vendor.tar.xz`. COPR then
   builds offline from the SRPM.
+  **Not implemented yet:** `ext-rpm.sh` doesn't make the vendor tarball today;
+  `stage_source` stops with "neither in the repo nor a URL". Until it does,
+  Rust packages can't be built by voulage or the package workflows.
 - `%prep`: `%autosetup -a1`, then `%cargo_prep -v vendor`.
 - `%build`: `%cargo_build`, then `%{cargo_license_summary}`,
   `%{cargo_license} > LICENSE.dependencies` and `%{cargo_vendor_manifest}`.
