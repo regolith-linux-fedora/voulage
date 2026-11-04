@@ -10,6 +10,7 @@ on:
       - "stage/*/fedora/**"
       - "tests/fedora-model.sh"
       - "tests/fedora-snapshot-release.sh"
+      - "tests/fedora-rust-vendor.sh"
   push:
     branches:
       - "fedora/**"
@@ -20,24 +21,28 @@ on:
       - "stage/*/fedora/**"
       - "tests/fedora-model.sh"
       - "tests/fedora-snapshot-release.sh"
+      - "tests/fedora-rust-vendor.sh"
 
 jobs:
   check:
     runs-on: ubuntu-24.04
-    # public image: tests/fedora-snapshot-release.sh needs rpm and GNU sed
+    # public image: the tests need rpm, GNU sed, spectool and cargo
     container: fedora:43
     steps:
       - name: Install tools
-        run: dnf -y install git-core jq rpm-build ShellCheck
+        run: dnf -y install git-core jq rpm-build rpmdevtools cargo xz ShellCheck
 
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: ShellCheck
-        run: shellcheck -x .github/scripts/ext-rpm.sh tests/fedora-model.sh tests/fedora-snapshot-release.sh
+        run: shellcheck -x .github/scripts/ext-rpm.sh tests/fedora-model.sh tests/fedora-snapshot-release.sh tests/fedora-rust-vendor.sh
 
       - name: Check the Fedora package models
         run: tests/fedora-model.sh
 
       - name: Check snapshot releases
         run: tests/fedora-snapshot-release.sh
+
+      - name: Check Rust vendor tarballs
+        run: tests/fedora-rust-vendor.sh

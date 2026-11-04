@@ -35,7 +35,12 @@ package the extension:
    higher version-release than the last, and still below the next release.
    Testing builds release tags and keeps the spec's `Release`;
 1. creates `Source0` from the checked-out tree with `git archive`, named as
-   the spec names it, and collects the other sources from the repo or by URL;
+   the spec names it, and collects the other sources from the repo or by URL.
+   A source named `<name>-<version>-vendor.tar.xz` (or `.tar.gz`, `.tar.zst`,
+   `.tar.bz2`) that is in neither is made with `cargo vendor --locked` from
+   the repo's `Cargo.lock`, as a tarball with a top-level `vendor/` directory,
+   so COPR builds Rust packages offline (`%autosetup -a1`,
+   `%cargo_prep -v vendor`);
 1. builds a source RPM with `rpmbuild -bs`;
 1. builds binary RPMs with `mock -r fedora-<release>-<arch>` when not
    publishing, with the stage's COPR repo added so earlier Regolith packages
