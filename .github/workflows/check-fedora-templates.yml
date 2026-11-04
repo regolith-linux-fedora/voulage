@@ -1,0 +1,78 @@
+name: Check Fedora Templates
+
+# Builds every docs/fedora/templates/*.spec in mock and runs rpmlint on the
+# spec and the RPMs, for every release in docs/fedora/targets.json on x86_64
+# and aarch64. Canary and early-warning releases don't fail the run.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "docs/fedora/templates/**"
+      - "docs/fedora/targets.json"
+      - "tests/fedora-template-*.sh"
+      - ".github/workflows/check-fedora-templates.yml"
+  push:
+    branches:
+      - "fedora/**"
+    paths:
+      - "docs/fedora/templates/**"
+      - "docs/fedora/targets.json"
+      - "tests/fedora-template-*.sh"
+      - ".github/workflows/check-fedora-templates.yml"
+
+jobs:
+  matrix:
+    runs-on: ubuntu-24.04
+    outputs:
+      include: ${{ steps.m.outputs.include }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: m
+        run: |
+          releases=$(jq -c '(.targets[] | {release, blocking: true}), ((.early_warning + .canary)[] | {release, blocking: false})' docs/fedora/targets.json)
+          include=$(for spec in docs/fedora/templates/*.spec; do
+            t=$(basename "$spec" .spec)
+            echo "$releases" | while read -r r; do
+              # sway 1.12 needs wlroots 0.20, which F43 doesn't ship
+              if [ "$t" = fedora-fork ] && [ "$(echo "$r" | jq -r .release)" = 43 ]; then continue; fi
+              for runner in ubuntu-24.04 ubuntu-24.04-arm; do
+                echo "$r" | jq -c --arg t "$t" --arg runner "$runner" '. + {template: $t, runner: $runner}'
+              done
+            done
+          done | jq -s -c .)
+          echo "$include" | jq -c '.[]'
+          echo "include=$include" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: matrix
+    name: ${{ matrix.template }} (${{ matrix.release }}, ${{ matrix.runner == 'ubuntu-24.04-arm' && 'aarch64' || 'x86_64' }})
+    runs-on: ${{ matrix.runner }}
+    container:
+      image: "fedora:${{ matrix.release }}"
+      options: --privileged
+    continue-on-error: ${{ !matrix.blocking }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.matrix.outputs.include) }}
+    steps:
+      - name: Install tools
+        run: |
+          dnf -y install mock rpm-build rpmlint git-core xz cargo fontconfig \
+            liberation-mono-fonts glibc-langpack-en hunspell-en
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and lint
+        env:
+          LANG: C.UTF-8
+        run: tests/fedora-template-build.sh "${{ matrix.template }}" "${{ matrix.release }}" results
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: template-${{ matrix.template }}-${{ matrix.release }}-${{ matrix.runner }}
+          path: results/
