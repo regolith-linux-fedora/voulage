@@ -87,6 +87,17 @@ rpmspec_query() {
   rpmspec -q --srpm --define "dist %{nil}" --qf "$1" "$RPM_SPEC"
 }
 
+# Print the command that compresses a tar stream into the given file name
+tar_compressor() {
+  case "$1" in
+    *.tar.gz|*.tgz) echo "gzip -n" ;;
+    *.tar.xz)       echo "xz" ;;
+    *.tar.bz2)      echo "bzip2" ;;
+    *.tar.zst)      echo "zstd -q" ;;
+    *)              return 1 ;;
+  esac
+}
+
 # Write a tarball of the checked-out tree named like the spec's Source0.
 archive_tree() {
   local src="$1"
@@ -99,17 +110,11 @@ archive_tree() {
     prefix="${prefix%"$ext"}"
   done
 
-  local compress=""
-  case "$file" in
-    *.tar.gz|*.tgz) compress="gzip -n" ;;
-    *.tar.xz)       compress="xz" ;;
-    *.tar.bz2)      compress="bzip2" ;;
-    *.tar.zst)      compress="zstd -q" ;;
-    *)
-      echo -e "\033[0;31mError: don't know how to create Source0 $file\033[0m"
-      return 1
-      ;;
-  esac
+  local compress
+  if ! compress="$(tar_compressor "$file")"; then
+    echo -e "\033[0;31mError: don't know how to create Source0 $file\033[0m"
+    return 1
+  fi
 
   pushd "$src" >/dev/null
   if [ -f .gitmodules ]; then
@@ -122,6 +127,55 @@ archive_tree() {
     git archive --format=tar --prefix="$prefix/" HEAD | $compress > "$target"
   fi
   popd >/dev/null
+}
+
+# A spec Source named like "<name>-<version>-vendor.tar.xz" (spec style guide,
+# "Rust vendoring") is made here rather than kept in the repo.
+is_vendor_tarball() {
+  case "$1" in
+    *-vendor.tar.gz|*-vendor.tgz|*-vendor.tar.xz|*-vendor.tar.bz2|*-vendor.tar.zst) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+# Write the crates of the repo's Cargo.lock as a tarball with a top-level
+# vendor/ directory, for "%autosetup -a1" and "%cargo_prep -v vendor". The
+# runner has network; COPR then builds offline from the source RPM. The tar
+# metadata is fixed, so the same commit gives the same tarball.
+vendor_crates() {
+  local src="$1"
+  local target="$2"
+
+  local file
+  file="$(basename "$target")"
+
+  if [ ! -f "$src/Cargo.lock" ] || [ ! -f "$src/Cargo.toml" ]; then
+    echo -e "\033[0;31mError: $file is a Rust vendor tarball, but $PACKAGE_NAME has no Cargo.toml and Cargo.lock at the top of the repo\033[0m"
+    return 1
+  fi
+
+  if ! command -v cargo >/dev/null; then
+    echo -e "\033[0;31mError: cargo is needed to create $file\033[0m"
+    return 1
+  fi
+
+  local compress
+  compress="$(tar_compressor "$file")"
+
+  local tmp mtime
+  tmp="$(mktemp -d)"
+  mtime="$(git -C "$src" -c safe.directory='*' log -1 --format=%ct 2>/dev/null || echo 0)"
+
+  mkdir -p "$tmp/vendor"
+  if ! cargo vendor --locked --manifest-path "$src/Cargo.toml" "$tmp/vendor" >/dev/null; then
+    echo -e "\033[0;31mError: cargo vendor --locked failed for $PACKAGE_NAME\033[0m"
+    rm -rf "$tmp"
+    return 1
+  fi
+
+  tar -C "$tmp" --sort=name --mtime="@$mtime" --owner=0 --group=0 --numeric-owner \
+    -cf - vendor | $compress > "$target"
+  rm -rf "$tmp"
 }
 
 copr_repo_available() {
@@ -229,6 +283,9 @@ stage_source() {
     elif [[ "$url" == *://* ]]; then
       echo "Downloading $file"
       curl -fsSL -o "$work/SOURCES/$file" "$url"
+    elif is_vendor_tarball "$file"; then
+      echo -e "\033[0;34mVendoring the crates of Cargo.lock into $file\033[0m"
+      vendor_crates "$src" "$work/SOURCES/$file" || return 1
     else
       echo -e "\033[0;31mError: $tag $file is neither in the repo nor a URL\033[0m"
       return 1
