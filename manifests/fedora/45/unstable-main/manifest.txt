@@ -1,1 +1,2 @@
 regolith-sway-touchpad-gestures https://github.com/regolith-linux-fedora/regolith-sway-touchpad-gestures.git fedora/main 632deae286d142ba8bd4395beb906a3e52952f30
+trawl https://github.com/regolith-linux-fedora/trawl.git fedora/master 17ff7d45ffa412d125872d667d73d8a283717cf2
