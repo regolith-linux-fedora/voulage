@@ -19,7 +19,7 @@ Source1:        %{name}-%{version}-vendor.tar.xz
 BuildRequires:  cargo-rpm-macros >= 24
 
 %description
-An example command-line tool, built from the crates vendored in Source1.
+An example command-line tool, built from the crates bundled in Source1.
 
 %prep
 %autosetup -a1

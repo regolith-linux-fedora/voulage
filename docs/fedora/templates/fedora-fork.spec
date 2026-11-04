@@ -17,17 +17,32 @@ License:        MIT
 URL:            https://github.com/regolith-linux/%{name}
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:  gcc
+# BuildRequires as in Fedora's sway.spec (gnupg2 dropped: we build from git, not
+# a signed release tarball).
+BuildRequires:  gcc-c++
 BuildRequires:  meson >= 1.3
 BuildRequires:  pkgconfig(cairo)
-BuildRequires:  pkgconfig(json-c)
-BuildRequires:  pkgconfig(libinput)
+BuildRequires:  pkgconfig(gdk-pixbuf-2.0)
+BuildRequires:  pkgconfig(glesv2)
+BuildRequires:  pkgconfig(json-c) >= 0.13
+BuildRequires:  pkgconfig(libdrm)
+BuildRequires:  pkgconfig(libevdev)
+BuildRequires:  pkgconfig(libinput) >= 1.26.0
 BuildRequires:  pkgconfig(libpcre2-8)
+BuildRequires:  pkgconfig(libsystemd) >= 239
+BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(pango)
-BuildRequires:  pkgconfig(wayland-server)
+BuildRequires:  pkgconfig(pangocairo)
+BuildRequires:  pkgconfig(pixman-1)
+BuildRequires:  pkgconfig(scdoc)
+BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  pkgconfig(wayland-cursor)
+BuildRequires:  pkgconfig(wayland-server) >= 1.21.0
+BuildRequires:  pkgconfig(wayland-protocols) >= 1.41
 BuildRequires:  pkgconfig(wlroots-0.20)
-BuildRequires:  pkgconfig(xkbcommon)
-BuildRequires:  scdoc
+BuildRequires:  pkgconfig(xcb)
+BuildRequires:  pkgconfig(xcb-icccm)
+BuildRequires:  pkgconfig(xkbcommon) >= 1.5.0
 
 Provides:       %{fedora_name} = %{version}-%{release}
 Conflicts:      %{fedora_name}
@@ -52,11 +67,16 @@ trawl.
 %doc README.md
 %dir %{_sysconfdir}/sway
 %config(noreplace) %{_sysconfdir}/sway/config
-%{_bindir}/sway
+# Fedora's sway grants CAP_SYS_NICE so it can raise its scheduling priority
+%caps(cap_sys_nice=ep) %{_bindir}/sway
 %{_bindir}/swaybar
 %{_bindir}/swaymsg
 %{_bindir}/swaynag
 %{_datadir}/wayland-sessions/sway.desktop
+%{_datadir}/backgrounds/sway/
+%{bash_completions_dir}/sway*
+%{fish_completions_dir}/sway*.fish
+%{zsh_completions_dir}/_sway*
 %{_mandir}/man1/sway*.1*
 %{_mandir}/man5/sway*.5*
 %{_mandir}/man7/sway*.7*

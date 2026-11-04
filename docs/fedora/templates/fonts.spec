@@ -12,11 +12,11 @@ URL:            https://github.com/regolith-linux/fonts-example
 %global fontlicenses      OFL.txt
 %global fontdocs          README.md
 %global fontfamily        Example Mono
-%global fontsummary       Example Mono, a monospaced font for terminals
+%global fontsummary       Example Mono, a fixed-width font for terminals
 %global fonts             fonts/*.ttf
 %global fontconfs         %{SOURCE10}
 %global fontdescription   %{expand:
-Example Mono is a monospaced font for terminals and status bars.}
+Example Mono is a fixed-width font for terminals and status bars.}
 
 Source0:        %{url}/archive/v%{version}/fonts-example-%{version}.tar.gz
 Source10:       60-%{fontpkgname}.conf

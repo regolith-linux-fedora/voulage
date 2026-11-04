@@ -25,7 +25,7 @@ Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 
 %description
 A session daemon that serves Regolith settings over D-Bus. It runs as a
-systemd user service.
+user service in the Regolith session.
 
 %package        libs
 Summary:        Shared library for %{name}

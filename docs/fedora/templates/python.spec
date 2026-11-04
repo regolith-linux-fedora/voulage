@@ -14,7 +14,7 @@ BuildRequires:  python3-devel
 
 %description
 An example command-line utility. Build and runtime dependencies come from
-pyproject.toml through the generated python3dist() requirements.
+the project metadata through the generated Python requirements.
 
 %prep
 %autosetup
