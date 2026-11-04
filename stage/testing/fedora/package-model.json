@@ -168,7 +168,7 @@
       "source": "https://github.com/regolith-linux-fedora/regolith-session.git"
     },
     "regolith-sway-touchpad-gestures": {
-      "ref": "v0.1.0-4",
+      "ref": "fedora/v0.1.0-0.1",
       "source": "https://github.com/regolith-linux-fedora/regolith-sway-touchpad-gestures.git"
     },
     "regolith-system-ubuntu": null,
