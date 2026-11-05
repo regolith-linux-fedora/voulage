@@ -65,7 +65,7 @@
       "source": "https://github.com/regolith-linux-fedora/i3xrocks.git"
     },
     "ilia": {
-      "ref": "v0.18.0",
+      "ref": "fedora/v0.18.0-1",
       "source": "https://github.com/regolith-linux-fedora/ilia.git"
     },
     "lago": {
