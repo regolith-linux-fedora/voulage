@@ -73,7 +73,7 @@
       "source": "https://github.com/regolith-linux-fedora/lago.git"
     },
     "libtrawldb": {
-      "ref": "v0.1-4",
+      "ref": "fedora/v0.1-1",
       "source": "https://github.com/regolith-linux-fedora/libtrawldb.git"
     },
     "nordic": {
