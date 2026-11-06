@@ -126,7 +126,7 @@
       "source": "https://github.com/regolith-linux-fedora/regolith-desktop.git"
     },
     "regolith-displayd": {
-      "ref": "v0.3.4",
+      "ref": "fedora/v0.3.4-1",
       "source": "https://github.com/regolith-linux-fedora/regolith-displayd.git"
     },
     "regolith-distro-ubuntu": null,
