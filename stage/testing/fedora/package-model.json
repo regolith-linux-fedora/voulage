@@ -13,7 +13,7 @@
       "source": "https://github.com/regolith-linux-fedora/ayu-theme.git"
     },
     "childe": {
-      "ref": "v0.1.4",
+      "ref": "fedora/v0.1.4-1",
       "source": "https://github.com/regolith-linux-fedora/childe.git"
     },
     "dracula-gtk": {
