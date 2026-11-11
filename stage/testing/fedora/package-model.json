@@ -139,7 +139,7 @@
       "source": "https://github.com/regolith-linux-fedora/regolith-i3xrocks-config.git"
     },
     "regolith-inputd": {
-      "ref": "v0.4.1",
+      "ref": "fedora/v0.4.1-1",
       "source": "https://github.com/regolith-linux-fedora/regolith-inputd.git"
     },
     "regolith-lightdm-config": null,
