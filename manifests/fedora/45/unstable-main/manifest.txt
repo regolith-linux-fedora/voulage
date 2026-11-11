@@ -2,6 +2,7 @@ childe https://github.com/regolith-linux-fedora/childe.git fedora/main f7a422b27
 ilia https://github.com/regolith-linux-fedora/ilia.git fedora/main f916e1f048ad9a66a1fc4b846f97de88d29fc45a
 libtrawldb https://github.com/regolith-linux-fedora/libtrawldb.git fedora/master e9ccebdfc0a6c0d8b6c7719848adedfd79e5ea0e
 regolith-displayd https://github.com/regolith-linux-fedora/regolith-displayd.git fedora/master ef3d5e6abae2e28337b6d17e157a2d8980f61fab
+regolith-inputd https://github.com/regolith-linux-fedora/regolith-inputd.git fedora/master 90771e946f79fa4109a855d4bb77866865bd11c9
 regolith-rofication https://github.com/regolith-linux-fedora/regolith-rofication.git fedora/master 8f791b8fe0fa1d3eda61474a96ce874650baeecc
 regolith-sway-touchpad-gestures https://github.com/regolith-linux-fedora/regolith-sway-touchpad-gestures.git fedora/main 632deae286d142ba8bd4395beb906a3e52952f30
 trawl https://github.com/regolith-linux-fedora/trawl.git fedora/master 17ff7d45ffa412d125872d667d73d8a283717cf2
