@@ -152,7 +152,7 @@
       "source": "https://github.com/regolith-linux-fedora/regolith-look-extra.git"
     },
     "regolith-powerd": {
-      "ref": "v0.7.0",
+      "ref": "fedora/v0.7.0-1",
       "source": "https://github.com/regolith-linux-fedora/regolith-powerd.git"
     },
     "regolith-rofi-config": {
