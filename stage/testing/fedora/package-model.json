@@ -206,7 +206,7 @@
       "source": "https://github.com/regolith-linux-fedora/WhiteSur-gtk-theme.git"
     },
     "xdg-desktop-portal-regolith": {
-      "ref": "v0.3.11-1",
+      "ref": "fedora/v0.3.11-1",
       "source": "https://github.com/regolith-linux-fedora/xdg-desktop-portal-regolith.git"
     },
     "xrescat": {
