@@ -11,6 +11,7 @@ on:
       - "tests/fedora-model.sh"
       - "tests/fedora-snapshot-release.sh"
       - "tests/fedora-rust-vendor.sh"
+      - "tests/fedora-source0-paths.sh"
   push:
     branches:
       - "fedora/**"
@@ -22,6 +23,7 @@ on:
       - "tests/fedora-model.sh"
       - "tests/fedora-snapshot-release.sh"
       - "tests/fedora-rust-vendor.sh"
+      - "tests/fedora-source0-paths.sh"
 
 jobs:
   check:
@@ -36,7 +38,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: ShellCheck
-        run: shellcheck -x .github/scripts/ext-rpm.sh tests/fedora-model.sh tests/fedora-snapshot-release.sh tests/fedora-rust-vendor.sh
+        run: shellcheck -x .github/scripts/ext-rpm.sh tests/fedora-model.sh tests/fedora-snapshot-release.sh tests/fedora-rust-vendor.sh tests/fedora-source0-paths.sh
 
       - name: Check the Fedora package models
         run: tests/fedora-model.sh
@@ -46,3 +48,6 @@ jobs:
 
       - name: Check Rust vendor tarballs
         run: tests/fedora-rust-vendor.sh
+
+      - name: Check Source0 paths
+        run: tests/fedora-source0-paths.sh
