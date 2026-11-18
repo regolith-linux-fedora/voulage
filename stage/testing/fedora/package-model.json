@@ -94,7 +94,7 @@
     },
     "regolith-archive-keyring": null,
     "regolith-avizo": {
-      "ref": "v0.1.5",
+      "ref": "fedora/v0.1.5-1",
       "source": "https://github.com/regolith-linux-fedora/avizo.git"
     },
     "regolith-compositor-compton-glx": {
