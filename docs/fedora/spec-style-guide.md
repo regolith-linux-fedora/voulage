@@ -182,3 +182,16 @@ On the agent workstation (Task 00-04):
 5. optionally, the Session Test
 
 A Local Loop pass is never Green.
+
+## 13. Large repositories
+
+- `ext-rpm.sh` makes `Source0` from the checked-out tree with `git archive`.
+  A repository too large to ship whole in a source RPM (fonts-nerd-fonts keeps
+  every family's TTFs) names the paths the package needs instead:
+  `%global source0_paths usr/share/fonts/truetype/hack debian/copyright`.
+  `Source0` then holds only those paths, under the usual
+  `%{name}-%{version}/` prefix, so `%autosetup` works unchanged.
+- Paths are relative to the repo root and separated by spaces. A path the
+  tree doesn't have fails the build.
+- List `debian/copyright` (or the licence files) too, so `%license` has them.
+

@@ -98,7 +98,17 @@ tar_compressor() {
   esac
 }
 
-# Write a tarball of the checked-out tree named like the spec's Source0.
+# Print the paths a spec limits its Source0 to (spec style guide, "Large
+# repositories"), from a line like
+#   %global source0_paths usr/share/fonts/truetype/hack debian/copyright
+# Nothing is printed when the spec has no such line.
+source0_paths() {
+  sed -n -E 's/^%global[[:space:]]+source0_paths[[:space:]]+//p' "$1" | head -n1
+}
+
+# Write a tarball of the checked-out tree named like the spec's Source0. A spec
+# with source0_paths gets only those paths, for repositories too large to ship
+# whole in a source RPM.
 archive_tree() {
   local src="$1"
   local target="$2"
@@ -116,17 +126,40 @@ archive_tree() {
     return 1
   fi
 
+  local paths=()
+  if [ -n "$RPM_SPEC" ]; then
+    read -r -a paths <<< "$(source0_paths "$RPM_SPEC")"
+  fi
+  if [ "${#paths[@]}" -gt 0 ]; then
+    echo "Source0 limited to: ${paths[*]}"
+  fi
+
   pushd "$src" >/dev/null
+  local status=()
   if [ -f .gitmodules ]; then
     # git archive leaves out submodules; tar the tree with stable metadata instead
     local mtime
     mtime="$(git log -1 --format=%ct)"
-    tar --sort=name --mtime="@$mtime" --owner=0 --group=0 --numeric-owner \
-      --exclude=.git --exclude=.github --transform "s|^\.|$prefix|" -cf - . | $compress > "$target"
+    if [ "${#paths[@]}" -gt 0 ]; then
+      tar --sort=name --mtime="@$mtime" --owner=0 --group=0 --numeric-owner \
+        --exclude=.git --exclude=.github --transform "s|^|$prefix/|" -cf - "${paths[@]}" | $compress > "$target"
+      status=("${PIPESTATUS[@]}")
+    else
+      tar --sort=name --mtime="@$mtime" --owner=0 --group=0 --numeric-owner \
+        --exclude=.git --exclude=.github --transform "s|^\.|$prefix|" -cf - . | $compress > "$target"
+      status=("${PIPESTATUS[@]}")
+    fi
   else
-    git archive --format=tar --prefix="$prefix/" HEAD | $compress > "$target"
+    git archive --format=tar --prefix="$prefix/" HEAD -- "${paths[@]}" | $compress > "$target"
+    status=("${PIPESTATUS[@]}")
   fi
   popd >/dev/null
+
+  # no pipefail here: a path git archive doesn't know only shows in its status
+  if [ "${status[0]}" -ne 0 ] || [ "${status[1]}" -ne 0 ]; then
+    echo -e "\033[0;31mError: could not archive Source0 $file${paths[*]:+ from ${paths[*]}}\033[0m"
+    return 1
+  fi
 }
 
 # A spec Source named like "<name>-<version>-vendor.tar.xz" (spec style guide,
@@ -276,7 +309,7 @@ stage_source() {
 
     if [ "$tag" == "Source0" ]; then
       echo -e "\033[0;34mGenerating $file from the git tree\033[0m"
-      archive_tree "$src" "$work/SOURCES/$file"
+      archive_tree "$src" "$work/SOURCES/$file" || return 1
     elif [ -f "$src/$file" ]; then
       echo "Using $file from the repo"
       cp "$src/$file" "$work/SOURCES/"
