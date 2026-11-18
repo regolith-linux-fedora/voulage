@@ -1,4 +1,5 @@
 childe https://github.com/regolith-linux-fedora/childe.git fedora/main f7a422b27a8cefee834b17692b7e0e19a1d2f35e
+i3status-rs https://github.com/regolith-linux-fedora/i3status-rs_debian.git fedora/ubuntu/v0.32.1 829bc56c419d27503bb9956331f8b7bf13adf391
 ilia https://github.com/regolith-linux-fedora/ilia.git fedora/main f916e1f048ad9a66a1fc4b846f97de88d29fc45a
 libtrawldb https://github.com/regolith-linux-fedora/libtrawldb.git fedora/master e9ccebdfc0a6c0d8b6c7719848adedfd79e5ea0e
 regolith-displayd https://github.com/regolith-linux-fedora/regolith-displayd.git fedora/master ef3d5e6abae2e28337b6d17e157a2d8980f61fab
