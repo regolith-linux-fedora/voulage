@@ -189,7 +189,7 @@
       "source": "https://github.com/regolith-linux-fedora/solarc-theme.git"
     },
     "sway-audio-idle-inhibit": {
-      "ref": "v2.0.1",
+      "ref": "fedora/v2.0.1-1",
       "source": "https://github.com/regolith-linux-fedora/SwayAudioIdleInhibit.git"
     },
     "sway-regolith": {
