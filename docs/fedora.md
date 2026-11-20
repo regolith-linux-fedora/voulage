@@ -34,9 +34,12 @@ release (`<release>.<commit date>git<sha>`) unless the commit is tagged `fedora/
 details: https://github.com/regolith-linux-fedora/notes (`INFRA.md` §8b).
 
 A per-release override (`stage/unstable/fedora/<release>/package-model.json`, like Ubuntu's per-codename files)
-maps to COPR as: the package's SCM entry denies that release (`--chroot-denylist 'fedora-43-*'`), and that release is
-built from the override ref (`copr-cli buildscm --commit <ref> -r fedora-43-x86_64 -r fedora-43-aarch64`). Current
-override: Fedora 43 (GNOME 49) builds `regolith-control-center` from `fedora/regolith-49`; 44+ use `fedora/main` (GNOME 50+).
+maps to a second COPR SCM package on the same fork and webhook: it tracks the override ref and allows only that release
+(chroot denylist), while the main package denies that release. COPR keeps a build attached to the package that started it,
+whatever the SRPM is named, and its webhook only builds packages whose committish matches the pushed branch, so a push to
+either branch rebuilds exactly its own releases. Current override: `regolith-control-center-f43` (`fedora/regolith-49`,
+GNOME 49, denylist `fedora-44-*,fedora-45-*,fedora-rawhide-*`); `regolith-control-center` (`fedora/main`, denylist
+`fedora-43-*`). Delete the `-f43` package when Fedora 43 reaches end of life, before Fedora 46 branches.
 
 ## Building
 
