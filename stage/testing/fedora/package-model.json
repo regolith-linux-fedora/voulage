@@ -29,7 +29,7 @@
       "source": "https://github.com/regolith-linux-fedora/fonts-materialdesignicons-webfont.git"
     },
     "fonts-nerd-fonts": {
-      "ref": "v2.1.0-4",
+      "ref": "fedora/v3.5.1-1",
       "source": "https://github.com/regolith-linux-fedora/fonts-nerd-fonts.git"
     },
     "fonts-source-code-pro-ttf": {
