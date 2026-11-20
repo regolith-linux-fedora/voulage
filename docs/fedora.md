@@ -33,6 +33,11 @@ release (`<release>.<commit date>git<sha>`) unless the commit is tagged `fedora/
 `.copr/Makefile` when a repo has one, so `build-rpm-v1.yml` and COPR produce the same SRPM. Generator and
 details: https://github.com/regolith-linux-fedora/notes (`INFRA.md` §8b).
 
+A per-release override (`stage/unstable/fedora/<release>/package-model.json`, like Ubuntu's per-codename files)
+maps to COPR as: the package's SCM entry denies that release (`--chroot-denylist 'fedora-43-*'`), and that release is
+built from the override ref (`copr-cli buildscm --commit <ref> -r fedora-43-x86_64 -r fedora-43-aarch64`). Current
+override: Fedora 43 (GNOME 49) builds `regolith-control-center` from `fedora/regolith-49`; 44+ use `fedora/main` (GNOME 50+).
+
 ## Building
 
 The spec is `<package>.spec` at the top of the package repo. For each changed
