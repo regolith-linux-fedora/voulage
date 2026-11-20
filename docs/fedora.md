@@ -12,7 +12,8 @@ stage/<stage>/fedora/package-model.json             # every package, pointed at 
 stage/<stage>/fedora/<release>/package-model.json   # per release overrides (43, 44, 45, rawhide)
 ```
 
-- Unstable refs are `fedora/<upstream-ref>` branches in the forks.
+- Unstable refs are `fedora/main` in the forks: the generated, tested packaging (`fedora/<name>.spec`, `fedora/Makefile`,
+  `.copr/Makefile`). The earlier per-upstream-branch work (`fedora/master`, `fedora/debian`, …) is kept as `fedora/claude`.
 - Testing refs start at the Upstream testing tags and are replaced by
   `fedora/v<Version>-<Release>` tags when a package's spec is released.
 - Ubuntu-only packages are `null`. Packages without a spec are skipped and
@@ -22,6 +23,15 @@ stage/<stage>/fedora/<release>/package-model.json   # per release overrides (43,
 Add a release by copying an existing release folder in both stages, then add
 the release to `ghcr.io/regolith-linux-fedora/ci-fedora` and to the COPR
 projects' chroots.
+
+## COPR SCM builds (unstable)
+
+`@regolith/regolith-unstable` builds every push to `fedora/main` by itself: each package is a COPR SCM package
+(`committish=fedora/main`, method `make_srpm`) and each fork has a GitHub push webhook to COPR. `.copr/Makefile`
+builds the SRPM: Source0 from the git tree, submodules, vendored crates (COPR builds offline) and a snapshot
+release (`<release>.<commit date>git<sha>`) unless the commit is tagged `fedora/v*`. `ext-rpm.sh` uses the same
+`.copr/Makefile` when a repo has one, so `build-rpm-v1.yml` and COPR produce the same SRPM. Generator and
+details: https://github.com/regolith-linux-fedora/notes (`INFRA.md` §8b).
 
 ## Building
 
