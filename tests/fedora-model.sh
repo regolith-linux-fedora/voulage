@@ -10,7 +10,8 @@ set -euo pipefail
 
 REPO="$(realpath "${1:-$(dirname "$0")/..}")"
 FORK_PREFIX="https://github.com/regolith-linux-fedora/"
-EXCLUDED=(regolith-archive-keyring regolith-distro-ubuntu regolith-lightdm-config regolith-system-ubuntu ubiquity-slideshow-regolith)
+# regolith-lightdm-config is packaged since its slick-greeter.conf conflict was resolved (notes BRE-015)
+EXCLUDED=(regolith-archive-keyring regolith-distro-ubuntu regolith-system-ubuntu ubiquity-slideshow-regolith)
 
 failures=0
 fail() {
